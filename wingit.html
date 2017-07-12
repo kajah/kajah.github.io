@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WingIt</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Rosario:400,400i,700" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./assets/styles/index.css">
+	<link rel="stylesheet" type="text/css" href="./assets/styles/info.css">
+</head>
+<body>
+<div class="full-container">
+	<div>
+		<a href="./index.html"><i class="fa fa-long-arrow-left fa-2x" aria-hidden="true"></i></a>
+	</div>
+	<div class="header">
+		<div id="title">WingIt</div>
+		<div id="app-info">
+			<p id="blurb">Android App</p>
+			<p id="date">Oct 2016 - Present</p>
+			<p><a target="_blank" href="https://play.google.com/store/apps/details?id=com.mdb.wingit.wingit&hl=en">Version 2.0 on Google Play Store.</a></p>
+		</div>
+	</div>
+
+	<div class="content">
+		<div class="summary">
+			<div class="content-title"><span>1</span> Summary</div>
+			<p>
+				WingIt is an Android app that lets users experience spontaneous adventures anywhere, anytime. It creates a trip itinerary on the go, instead of planning the entire trip beforehand.
+			</p>
+		</div>
+		<div class="design">
+			<div class="content-title"><span>2</span> Design</div>
+			<p>
+				Our main objective was to create a seamless experience for the user that simulated a real-time adventure. Therefore we came up with the following goals:
+			</p>
+			<ol>
+				<li>
+					Minimal screens and user interaction - the app should do all the hard work
+				</li>
+				<li>
+					Clean screen designs to not distract the user from the adventure
+				</li>
+				<li>
+					Screen transitions should flow on top of one another to create a cohesive and seamless experience
+				</li>
+				<li>
+					The app should be an assistant or right-hand to the user - the real world is the actual adventure
+				</li>
+				<li>
+					Follow Material Design guidelines
+				</li>
+			</ol>
+			<div class="photos">
+				<div class="photo">
+					<img src="./assets/images/wingit/login.png">
+				</div>
+				<div class="photo">
+					<img src="./assets/images/wingit/signup.png">
+				</div>
+			</div>
+			<p>
+				After countless iterations of wireframes and mockups, we came up with our current design, which was released as Version 2.0 on the Google Play Store. Even though it is not perfect, the designs achieved a large portion of our initial goals.
+			</p>
+			
+		</div>
+		<div class="tech">
+			<div class="content-title"><span>3</span> Technology + Methods</div>
+			<p>
+				<em>Android Studio, Google Places API, Firebase</em>
+			</p>
+			<p>
+				When the app is launched, the user will see a "Start Your Adventure" screen with 2 options: Activity and Food. Once the user chooses a category, the "adventure" has begun.
+			</p>
+			<div class="photos">
+				<div class="photo">
+					<img src="./assets/images/wingit/selector.png">
+				</div>
+			</div>
+			<p>
+				The next screen shows the user 3 randomly generated places based on the user's current location. This was achieved by using Google Places API. The app will show more details and how far away each place is on a map, provided by Google Maps. 
+			</p>
+			<div class="photos">
+				<div class="photo">
+					<img src="./assets/images/wingit/carousel.png">
+				</div>
+				<div class="photo">
+					<img src="./assets/images/wingit/carousel-more-details.png">
+				</div>
+			</div>
+			<p>
+				Once the user chooses a place to go, the app will redirect to Google Maps to navigate the user to the desired location. Once the user returns to the app, a map will show all the places the user has visited so far. The user can either continue or end the adventure from here.
+			</p>
+			<div class="photos">
+				<div class="photo">
+					<img src="./assets/images/wingit/pin-map-multiple-pins.png">
+				</div>
+				<div class="photo">
+					<img src="./assets/images/wingit/pin-map-continue.png">
+				</div>
+			</div>
+			<p>
+				The user may also see a timeline of his/her current adventure by tapping the carrot at the bottom of the screen.
+			</p>
+			<div class="photos">
+				<div class="photo">
+					<img src="./assets/images/wingit/timeline.png">
+				</div>
+			</div>
+			<p>
+				Users may also visit previous adventures and see their timelines. We use a Firebase database for authentication and to store adventures.
+			</p>
+			<div class="photos">
+				<div class="photo">
+					<img src="./assets/images/wingit/past-adventures-sidemenu.png">
+				</div>
+				<div class="photo">
+					<img src="./assets/images/wingit/past-adventures.png">
+				</div>
+			</div>
+		</div>
+		<div class="future">
+			<div class="content-title"><span>4</span> Looking Forward</div>
+			<p>
+				We are working on Version 3.0, where we hope to develop a cross-platform version of the app, and revamp the designs so that the users do not feel constrained or limited by the app. Some features to look forward to:
+			</p>
+			<ol>
+				<li>
+					More flexibility when generating places: filter by transportation method, number of choices, categories, food preferences, etc.
+				</li>
+				<li>
+					Easier navigation to a location
+				</li>
+				<li>
+					Recommendations along your adventure
+				</li>
+			</ol>
+		</div>
+
+		<div class="back-to-top">
+			<a href="#top"><i class="fa fa-long-arrow-up fa-2x" aria-hidden="true"></i></a>
+		</div>
+		
+	</div>
+	
+</div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+	<div id="back-arrow">
+		<a href="../index.html"><i class="fa fa-long-arrow-left fa-2x" aria-hidden="true"></i></a>
+	</div>
+	<h1>
+		THE GREAT
+		<br>
+		<span id="rgb">RGB(<span id="red"></span>, <span id="green"></span>, <span id="blue"></span>)</span>
+		<br>
+		GUESSING GAME
+	</h1>
+
+
+	<div id="row">
+		<button id="newColors">NEW COLORS</button>
+		<span id="message"></span>
+		<button class="difficulty">Easy</button>
+		<button class="difficulty selected">Hard</button>
+	</div>
+
+	<div id="board">
+		<table>
+			<tr>
+				<td class="choice" id="topL"></td>
+				<td class="choice" id="topM"></td>
+				<td class="choice" id="topR"></td>
+			</tr>
+			<tr>
+				<td class="choice" id="botL"></td>
+				<td class="choice" id="botM"></td>
+				<td class="choice" id="botR"></td>
+			</tr>
+		</table>
+	</div>
+	
+	<script src="script.js"></script>
+</body>
+</html>
