@@ -24,7 +24,7 @@ span {
 }
 
 p, ol {
-	color: #455A64;
+	color: #78909C;
 }
 
 img {
@@ -57,6 +57,10 @@ img {
 
 .fa {
 	color: #9E9E9E;
+}
+
+.fa:hover {
+	color: #757575;
 }
 
 .fa-long-arrow-left {

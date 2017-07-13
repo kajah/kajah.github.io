@@ -46,11 +46,15 @@ body, html {
 
 a {
 	text-decoration: none;
-	color: #BDBDBD;
+	color: #1565C0;
 }
 
 a:visited {
-	color: #9E9E9E;
+	color: #1565C0;
+}
+
+a:hover {
+	color: #0D47A1;
 }
 
 #about {
@@ -59,12 +63,27 @@ a:visited {
 }
 
 #about a, #art a {
-	font-size: 18px;
-	color: #BBDEFB;
+	font-size: 20px;
+	color: #1565C0;
+}
+
+#about a:hover {
+	color: #0D47A1;
 }
 
 #art {
 	margin-bottom: 36px;
+}
+
+/****** FA ICONS *****/
+
+#links i {
+	color: #1565C0;
+	margin-right: 10px;
+}
+
+#links i:hover {
+	color: #0D47A1;
 }
 
 /****** CONTENT STYLES ******/
