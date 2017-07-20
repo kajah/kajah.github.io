@@ -1,12 +1,18 @@
-var red = document.getElementById("red");
-var blue = document.getElementById("blue");
-var green = document.getElementById("green");
-var choices = document.querySelectorAll("td"); // array of squares
-var newColors = document.getElementById("newColors");
-var msg = document.getElementById("message");
-var difficulty = document.getElementsByClassName("difficulty"); // easy and hard buttons
-var answer;
-var numChoices;
+var red        = document.getElementById("red"),
+    blue       = document.getElementById("blue"),
+    green      = document.getElementById("green"),
+    choices    = document.querySelectorAll("td"), // array of squares
+    newColors  = document.getElementById("newColors"),
+    msg        = document.getElementById("message"),
+    difficulty = document.getElementsByClassName("difficulty"), // easy and hard buttons
+    answer,
+    numChoices,
+    toggleMenu = document.getElementById("toggle-menu"),
+    menuClosed = true,
+    mode	   = document.getElementsByClassName("mode"),
+    modal 	   = document.querySelector(".modal-container"),
+    help	   = document.querySelector(".fa-question"),
+    closeModal = document.querySelector(".modal-close i");
 
 startGame();
 
@@ -15,12 +21,44 @@ function startGame() {
 	reset();
 	initDifficulty();
 	newColors.addEventListener("click", reset);
+	toggleMenu.addEventListener("click", function() {
+		if (menuClosed) {
+			toggleMenu.classList.remove("fa-plus");
+			toggleMenu.classList.add("fa-times");
+			document.getElementById("menu-content").classList.remove("menu-closed");
+			document.getElementById("menu-content").classList.add("menu-open");
+			menuClosed = false;
+		} else {
+			toggleMenu.classList.remove("fa-times");
+			toggleMenu.classList.add("fa-plus");
+			document.getElementById("menu-content").classList.remove("menu-open");
+			document.getElementById("menu-content").classList.add("menu-closed");
+			menuClosed = true;
+		}
+	});
+	for (var i = 0; i < mode.length; i ++) {
+		mode[i].addEventListener("click", function() {
+			mode[0].classList.remove("selected");
+			mode[1].classList.remove("selected");
+			this.classList.add("selected");
+		});
+	}
+
+	help.addEventListener("click", function() {
+		modal.style.visibility = "visible";
+	});
+
+	closeModal.addEventListener("click", function() {
+		modal.style.visibility = "hidden";
+	});
+
 }
 
 function reset() {
 	msg.textContent = "";
-	newColors.textContent = "New Colors";
+	// newColors.textContent = "New Colors";
 	document.querySelector("h1").style.backgroundColor = "steelblue";
+	// document.getElementById("back-arrow").style.backgroundColor = "steelblue";
 	var randomR = getRandomInt(0, 251);
 	var randomG = getRandomInt(0, 251);
 	var randomB = getRandomInt(0, 251);
@@ -72,11 +110,12 @@ function initDifficulty() {
 function win() {
 	msg.textContent = "You Win!";
 	document.querySelector("h1").style.backgroundColor = answer;
+	// document.getElementById("back-arrow").style.backgroundColor = answer;
 	for (var i = 0; i < numChoices; i ++) {
 		choices[i].style.backgroundColor = answer;
 		choices[i].style.visibility = "visible";
 	}
-	newColors.textContent = "Play Again?";
+	// newColors.textContent = "Play Again?";
 }
 
 function getRandomInt(min, max) {

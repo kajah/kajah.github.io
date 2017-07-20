@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="./palette-style.css">
+</head>
+<body>
+	<div class="modal-container">
+		<div class="modal">
+			<div class="modal-close">
+				<i class="fa fa-times fa-2x"></i>
+			</div>
+			<div class="modal-text">
+				This is an RGB color picker. Find the perfect RGB color using the 3 red, green, and blue swatches/sliders, respectively. Alternatively, you may enter your own red, green, and/or blue numbers [0-255] by clicking on the respective number in the header.
+			</div>
+		</div>
+	</div>
+	<div class="menu">
+		<div class="open-menu">
+			<!-- <i class="fa fa-refresh fa-2x" id="newColors"></i> -->
+			<i class="fa fa-question fa-2x"></i>
+			<i class="fa fa-plus fa-2x" id="toggle-menu"></i>
+		</div>
+		<div class="menu-closed" id="menu-content">
+			<div class="mode-container">
+				<span class="menu-title">Mode:</span>
+				<a href="./index.html"><button class="mode">Game</button></a>
+				<button class="mode selected">Palette</button>
+			</div>	
+			<div class="return">
+				<a href="../index.html"><button>Return to katharinejiang.com</button></a>
+			</div>
+		</div>
+	</div>
+	<h1>
+		<span id="rgb">RGB(
+		<span id="red">
+			<input type="number" min="0" max="255" id="red-input" value="0">
+		</span>, 
+		<span id="green">
+			<input type="number" min="0" max="255" id="green-input" value="0">
+		</span>, 
+		<span id="blue">
+			<input type="number" min="0" max="255" id="blue-input" value="0">
+		</span>
+		)</span>
+	</h1>
+	<div id="row">
+		<button id="newColors">RESET</button>
+	</div>
+	<div id="palettes">
+		<div class="palette">
+			<div class="color-swatch" id="red-swatch"></div>
+			<div class="color-slider">
+				<input type="range" id="red-slider" min="0" max="255" value="0">
+			</div>
+		</div>
+		<div class="palette">
+			<div class="color-swatch" id="green-swatch"></div>
+			<div class="color-slider">
+				<input type="range" id="green-slider" min="0" max="255" value="0">
+			</div>
+		</div>
+		<div class="palette">
+			<div class="color-swatch" id="blue-swatch"></div>
+			<div class="color-slider">
+				<input type="range" id="blue-slider" min="0" max="255" value="0">
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="./palette-script.js"></script>
+</body>
+</html>

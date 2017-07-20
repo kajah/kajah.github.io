@@ -6,23 +6,47 @@
 	<link rel="stylesheet" href="./style.css">
 </head>
 <body>
-	<div id="back-arrow">
-		<a href="../index.html"><i class="fa fa-long-arrow-left fa-2x" aria-hidden="true"></i></a>
+	<div class="modal-container">
+		<div class="modal">
+			<div class="modal-close">
+				<i class="fa fa-times fa-2x"></i>
+			</div>
+			<div class="modal-text">
+				This is an RGB guessing game. Try to guess what color corresponds to the RGB value in the header. An RGB color is determined by how much red, green, and blue is in the color. For example, RGB(255, 0, 0) is all red with 0 green and 0 blue. Click the + sign on the top right to try out different RGB colors in "Palette" Mode.
+			</div>
+		</div>
+	</div>
+	
+	<div class="menu">
+		<div class="open-menu">
+			<i class="fa fa-question fa-2x"></i>
+			<i class="fa fa-refresh fa-2x" id="newColors"></i>
+			
+			<i class="fa fa-plus fa-2x" id="toggle-menu"></i>
+		</div>
+		<div class="menu-closed" id="menu-content">
+			<div class="level">
+				<span class="menu-title">Difficulty:</span>
+				<button class="difficulty">Easy</button>
+				<button class="difficulty selected">Hard</button>
+			</div>
+			<div class="mode-container">
+				<span class="menu-title">Mode:</span>
+				<button class="mode selected">Game</button>
+				<a href="./palette.html"><button class="mode">Palette</button></a>
+			</div>	
+			<div class="return">
+				<a href="../index.html"><button>Return to katharinejiang.com</button></a>
+			</div>
+		</div>
 	</div>
 	<h1>
-		THE GREAT
-		<br>
 		<span id="rgb">RGB(<span id="red"></span>, <span id="green"></span>, <span id="blue"></span>)</span>
-		<br>
-		GUESSING GAME
 	</h1>
 
 
 	<div id="row">
-		<button id="newColors">NEW COLORS</button>
 		<span id="message"></span>
-		<button class="difficulty">Easy</button>
-		<button class="difficulty selected">Hard</button>
 	</div>
 
 	<div id="board">
