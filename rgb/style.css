@@ -12,6 +12,10 @@ body {
 	color: #232323;
 }
 
+.fa:hover {
+	color: #616161;
+}
+
 .fa-long-arrow-left {
 	margin-left: 20px;
 	margin-top: 10px;
