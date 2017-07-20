@@ -136,6 +136,9 @@ function reset() {
 	redInput.value = 0;
 	greenInput.value = 0;
 	blueInput.value = 0;
+	redSlider.value = 0;
+	greenSlider.value = 0;
+	blueSlider.value = 0;
 	changeHeaderColor();
 }
 
