@@ -53,76 +53,34 @@ function startPalette() {
 		modal.style.visibility = "hidden";
 	});
 
-	// for (var i = 0; i < sliders.length; i ++) {
-	// 	sliders[i].addEventListener("change", function() {
-	// 		setStuff(i);
-	// 	});	
-	// }
+	header.addEventListener("change", function() {
+		if (header.style.backgroundColor === "rgb(255, 255, 255)") {
+			header.style.color = formatRGB(0, 0, 0);
+		}
+	});
+
+	for (let i = 0; i < sliders.length; i ++) {
+		sliders[i].addEventListener("change", function() {
+			swatches[i].style.backgroundColor = formatRGBWithIndex(i, this.value);
+			inputs[i].value = this.value;
+			header.style.backgroundColor = formatRGB(inputs[0].value, inputs[1].value, inputs[2].value);
+			changeHeaderColor();
+		});
+	}
+
+	for (let i = 0; i < inputs.length; i ++) {
+		inputs[i].addEventListener("change", function() {
+			if (!isValid(this.value)) {
+				this.value = 0;
+			}
+			swatches[i].style.backgroundColor = formatRGBWithIndex(i, this.value);
+			sliders[i].value = this.value;
+			header.style.backgroundColor = formatRGB(inputs[0].value, inputs[1].value, inputs[2].value);
+			changeHeaderColor();
+		});
+	}
+
 }
-
-// function setStuff(i) {
-// 	swatches[i].style.backgroundColor = formatRGBWithIndex(i, sliders[i].value);
-// 	inputs[i].value = sliders[i].value;
-// 	header.style.backgroundColor = formatRGB(inputs[0].value, inputs[1].value, inputs[2].value);
-// 	changeHeaderColor();
-// }
-
-redSlider.addEventListener("change", function() {
-	redSwatch.style.backgroundColor = formatRGB(redSlider.value, 0, 0);
-	redInput.value = redSlider.value;
-	header.style.backgroundColor = formatRGB(redInput.value, greenInput.value, blueInput.value);
-	changeHeaderColor();
-});
-
-greenSlider.addEventListener("change", function() {
-	greenSwatch.style.backgroundColor = formatRGB(0, greenSlider.value, 0);
-	greenInput.value = greenSlider.value;
-	header.style.backgroundColor = formatRGB(redInput.value, greenInput.value, blueInput.value);
-	changeHeaderColor();
-});
-
-blueSlider.addEventListener("change", function() {
-	blueSwatch.style.backgroundColor = formatRGB(0, 0, blueSlider.value);
-	blueInput.value = blueSlider.value;
-	header.style.backgroundColor = formatRGB(redInput.value, greenInput.value, blueInput.value);
-	changeHeaderColor();
-});
-
-header.addEventListener("change", function() {
-	if (header.style.backgroundColor === "rgb(255, 255, 255)") {
-		header.style.color = formatRGB(0, 0, 0);
-	}
-});
-
-redInput.addEventListener("change", function() {
-	if (!isValid(redInput.value)) {
-		redInput.value = 0;
-	}
-	redSwatch.style.backgroundColor = formatRGB(redInput.value, 0, 0);
-	redSlider.value = redInput.value;
-	header.style.backgroundColor = formatRGB(redInput.value, greenInput.value, blueInput.value);
-	changeHeaderColor();
-});
-
-greenInput.addEventListener("change", function() {
-	if (!isValid(greenInput.value)) {
-		greenInput.value = 0;
-	}
-	greenSwatch.style.backgroundColor = formatRGB(0, greenInput.value, 0);
-	greenSlider.value = greenInput.value;
-	header.style.backgroundColor = formatRGB(redInput.value, greenInput.value, blueInput.value);
-	changeHeaderColor();
-});
-
-blueInput.addEventListener("change", function() {
-	if (!isValid(blueInput.value)) {
-		blueInput.value = 0;
-	}
-	blueSwatch.style.backgroundColor = formatRGB(0, 0, blueInput.value);
-	blueSlider.value = blueInput.value;
-	header.style.backgroundColor = formatRGB(redInput.value, greenInput.value, blueInput.value);
-	changeHeaderColor();
-});
 
 document.getElementById("newColors").addEventListener("click", function() {
 	reset();
@@ -179,5 +137,3 @@ function isWhite() {
 function isValid(number) {
 	return number >= 0 && number <= 255;
 }
-
-
