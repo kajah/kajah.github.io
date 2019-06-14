@@ -3,17 +3,48 @@
 	box-sizing: border-box;
 }
 
+/* body {
+	font-family: 'Waiting for the Sunrise', cursive; 
+	font-size:30px; 
+	margin: 10px 50px; 
+	letter-spacing: 6px; 
+	font-weight: bold;
+  } */
+
 body, html {
-	background-color: #212121;
+	/* background-color: #212121; */
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	font-family: 'Rosario', sans-serif;
+	font-family: 'Press Start 2P', cursive;
+	line-height: 40px;
+	/* display: flex;
+	justify-content: center; */
+}
+
+html { 
+	background: url(../images/pixil-gif-drawing-2.gif) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.beg-container, .start-container {
+	margin-top: 33%;
+	margin-left: 100px;
+	position: absolute;
+	cursor: pointer;
+}
+
+#menu-description {
+	margin-top: 10px;
+	color: #1565C0;
 }
 
 /***** PERSONAL INFO STYLES *****/
 
-.header {
+/* .header {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -73,7 +104,7 @@ a:hover {
 
 #art {
 	margin-bottom: 36px;
-}
+} */
 
 /****** FA ICONS *****/
 
@@ -88,7 +119,7 @@ a:hover {
 
 /****** CONTENT STYLES ******/
 
-.project-container, .content {
+/* .project-container, .content {
 	padding-left: 8.33%;
 	padding-right: 8.33%;
 }
@@ -123,7 +154,7 @@ hr {
 	padding-left: 20px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-}
+} */
 
 /***** FOR FULL SCREEN *****/
 @media only screen and (min-width: 768px) {
@@ -161,7 +192,7 @@ hr {
 
 /***** KEYFRAMES *****/
 
-@keyframes fadeIn {
+/* @keyframes fadeIn {
 	0% {
 		opacity: 0;
 	}
@@ -193,11 +224,11 @@ hr {
 		opacity: 1;
 		transform: none;
 	}
-}
+} */
 
 /***** CSS Transitions *****/
 
-.m-scene {
+/* .m-scene {
 	.scene_element {
 		animation-duration: 0.5s;
 		transition-timing-function: ease-in;
@@ -215,5 +246,5 @@ hr {
 	.scene_element--fadeinright {
 		animation-name: fadeInRight;
 	}
-}
+} */
 
