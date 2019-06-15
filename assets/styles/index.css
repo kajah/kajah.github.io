@@ -23,7 +23,7 @@ body, html {
 }
 
 html { 
-	background: url(../images/pixil-gif-drawing-2.gif) no-repeat center center fixed; 
+	background: url(../images/pixil-gif-drawing-3.gif) no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -39,72 +39,37 @@ html {
 
 #menu-description {
 	margin-top: 10px;
-	color: #1565C0;
+	color: black;
+	background-color: aquamarine;
 }
 
-/***** PERSONAL INFO STYLES *****/
-
-/* .header {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding-left: 8.33%;
-	padding-right: 8.33%;
+#start:hover {
+	color: aquamarine;
 }
 
-#name {
-	margin-top: 36px;
-	margin-bottom: 20px;
-	color: #E3F2FD;
-	font-weight: 700;
-	font-size: 36px;
+#quit:hover {
+	color: aquamarine;
 }
 
-#bio, #app-info {
-	text-align: center;
-	color: #BBDEFB;
-	font-size: 18px;
+#continue:hover {
+	color: aquamarine;
 }
 
-#contact {
-	color: #BDBDBD;
+#save1:hover {
+	color: aquamarine;
 }
 
-#links {
-	color: #BDBDBD;
-	margin-bottom: 10px;
+#tutorial:hover {
+	color: aquamarine;
 }
 
-a {
-	text-decoration: none;
-	color: #1565C0;
+#about:hover {
+	color: aquamarine;
 }
 
-a:visited {
-	color: #1565C0;
+#back:hover {
+	color: aquamarine;
 }
-
-a:hover {
-	color: #0D47A1;
-}
-
-#about {
-	margin-top: 10px;
-	margin-bottom: 20px;
-}
-
-#about a, #art a {
-	font-size: 20px;
-	color: #1565C0;
-}
-
-#about a:hover {
-	color: #0D47A1;
-}
-
-#art {
-	margin-bottom: 36px;
-} */
 
 /****** FA ICONS *****/
 

@@ -19,6 +19,11 @@ body, html {
     cursor: pointer;
 }
 
+.back-to-start:hover {
+    background-color: black;
+    color: aquamarine;
+}
+
 #description-nextdoor {
     margin-top: 20px;
     font-family: 'Inconsolata', monospace;
