@@ -1,0 +1,95 @@
+* {
+	box-sizing: border-box;
+}
+
+body, html {
+	/* background-color: #212121; */
+	height: 100%;
+	margin: 0;
+	padding: 0;
+    font-family: 'Press Start 2P', cursive;
+	line-height: 40px;
+	/* display: flex;
+	justify-content: center; */
+}
+
+.back-to-start {
+    cursor: pointer;
+}
+
+#description-nextdoor {
+    margin-top: 20px;
+    font-family: 'Inconsolata', monospace;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.project-nextdoor {
+    /* margin-top: 20px; */
+    font-family: 'Inconsolata', monospace;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.break {
+    height: 50px;
+}
+
+.infographic {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+img {
+    width: 100%;
+    margin: 50px 10px 50px 10px;
+}
+
+#polls {
+    width: 50%;
+}
+
+#events {
+    width: 80%;
+}
+
+/***** FOR FULL SCREEN *****/
+@media only screen and (min-width: 768px) {
+	.full-container {
+		padding: 20px 50px;
+	}
+
+	.header {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		width: 33.33%;
+		padding: 0;
+        position: fixed;
+    }
+    
+    .description {
+        margin-top: 36px;
+    }
+
+	/* #bio, #app-info {
+		text-align: left;
+	} */
+
+	.project-container, .content {
+		width: 66.67%;
+		margin-left: calc(33.33% + 50px);
+		margin-top: 50px;
+		padding-left: 20px;
+		padding-right: 50px;
+	}
+
+	hr {
+		text-align: left;
+		margin-left: 0;
+    }
+    
+
+
+}

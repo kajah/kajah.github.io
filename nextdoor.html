@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nextdoor</title>
+    <link rel="stylesheet" type="text/css" href="./assets/styles/projects_general.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="full-container">
+        <div class="header">
+            <div class="back-to-start">Back</div>
+            <div class="description">
+                <div id="nextdoor">Nextdoor</div>
+                <div>Software Engineering Intern</div>
+                <div>Real Estate Team</div>
+                <div>ReactJS, Django, SQL, Datadog</div>
+                <div>May - August 2018</div>
+                <div id="description-nextdoor">
+                    <p>Nextdoor is a social media platform connecting neighbors to build stronger communities. I joined as a full stack product engineering intern on the Real Estate team. Over 12 weeks, I helped build and ship 3 product features. I learned to fail fast and iterate, navigate and refactor a huge codebase, write comprehensive unit tests, and conduct user research. </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="project-container">
+            <h2>Project 1 + 2 * Polls and Events</h2>
+            <div class="project-nextdoor">
+                <p>Nextdoor's Real Estate section allows real estate agents to post their listings and interact with members in unique ways. Members can explore their neighborhood's real estate market even if they're not actively looking.</p>
+                <div class="infographic">
+                    <img src="./assets/images/nextdoor/agent_member_gen.png">
+                </div>
+                <p>My first 2 projects launched 2 features on the real estate agent side: polls and events. With these tools, real estate agents can ask questions and post events to engage with Nextdoor users and build more personal relationships.</p>
+                <h3>Polls</h3>
+                    <div class="infographic">
+                        <img id="polls" src="./assets/images/nextdoor/polls.png">
+                    </div>
+                    <p>When I joined the Real Estate team, agents were already able to post regular posts and open houses to the zipcodes they sponsor. The third type of "post" was polls. Polls are another way agents can provide value and drive up member engagement.</p>
+                    <h4>Challenges</h4>
+                        <p>The biggest challenge during this project was completing a refactor of a huge file used across the codebase. This file was over 2000 lines long, and saturated with different props and states. I learned how to efficiently comb over a large codebase to find what I needed to change so that my refactor did not break other parts of the app. I gained familiarity with ReactJS. I had to rewrite and write more tests to ensure a smooth refactor. Finally, I used the newly refactored file to complete polls.</p>
+                <h3>Events</h3>
+                    <div class="infographic">
+                        <img id="events" src="./assets/images/nextdoor/events.png">
+                    </div>
+                    <p>The fourth and final type of "post" that real estate agents have access to are Events. These are general events, different from Open Houses.</p>
+                    <h4>Challenges</h4>
+                        <p>The biggest challenge for Events was figuring out how to differentiate Events from other parts of the codebase that use Events as a base template. I had to work with both the frontend and backend to ensure smooth logic on the agent side without breaking features on the member side. I learned a lot about frontend / backend communication and how to modularize code.</p>
+            </div>
+            <div class="break"></div>
+            <h2>Project 3 * Map Filters</h2>
+            <div class="project-nextdoor">
+                <p>My 3rd and biggest project involved product design / management + engineering, as I wanted to own a feature and build it from ground up. The Real Estate map section is the primary way for members to browse listings, however I noticed there were no map filters or search. I took this project on my own and wrote a complete product spec for general map filters and then built and launched a specific filter.</p>
+                <h3>User Research</h3>
+                    <p>I first conducted user research to find out if map filters were actually something members would find value in. I decided the most efficient way to collect data was to build fake map filters that linked to a short user survey. I displayed this fake filter for about 60% of members and used <b>Datadog</b> and <b>Qubole</b> to analyze click through rate and other statistics. I learned how to write questions that would elicit the most useful responses.</p>
+                    <p>I concluded that building a minimum set of map filters was</p>
+                <h3>Product Spec</h3>
+                <h3>Price Filter</h3>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="assets/scripts/script_projects.js"></script>
+
+</body>
+</html>

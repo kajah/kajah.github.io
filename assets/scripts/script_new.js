@@ -1,8 +1,8 @@
 var begContainer    = document.getElementsByClassName("beg-container"),
     startContainer  = document.getElementsByClassName("start-container"),
-    onStartPage     = true,
+    onBegPage       = true,
     start           = document.getElementById("start"),
-    quit           = document.getElementById("quit"),
+    quit            = document.getElementById("quit"),
     cont            = document.getElementById("continue"),
     save1           = document.getElementById("save1"),
     tutorial        = document.getElementById("tutorial"),
@@ -10,18 +10,25 @@ var begContainer    = document.getElementsByClassName("beg-container"),
     back            = document.getElementById("back"),
     menuDescription = document.getElementById("menu-description");
 
-
+var urlParams = new URLSearchParams(window.location.search);
+if (urlParams) {
+    var fromProjectPage = urlParams.get('fromProjectPage');
+    if (fromProjectPage) {
+        onBegPage = false;
+    }
+}
 
 start.addEventListener("click", function() {
     begContainer[0].style.visibility = "hidden";
     startContainer[0].style.visibility = "visible";
-    onStartPage = false;
+    onBegPage = false;
 });
 
 back.addEventListener("click", function() {
     begContainer[0].style.visibility = "visible";
     startContainer[0].style.visibility = "hidden";
-    onStartPage = true;
+    onBegPage = true;
+    // window.history.pushState({}, document.title, "/" + "index.html");
 });
 
 cont.addEventListener("click", function() {
@@ -49,6 +56,11 @@ save1.addEventListener("mouseleave", function() {
     menuDescription.innerText = "";
 });
 
+save1.addEventListener("click", function() {
+    onBegPage = false;
+    window.location.href = "nextdoor.html";
+});
+
 tutorial.addEventListener("mouseover", function() {
     menuDescription.innerText = "Education: University of California, Berkeley '19";
 });
@@ -57,8 +69,20 @@ tutorial.addEventListener("mouseleave", function() {
     menuDescription.innerText = "";
 });
 
-if (onStartPage) {
+about.addEventListener("mouseover", function() {
+    menuDescription.innerText = "Hi my name is Katharine";
+});
+
+about.addEventListener("mouseleave", function() {
+    menuDescription.innerText = "";
+});
+
+if (onBegPage) {
+    begContainer[0].style.visibility = "visible";
     startContainer[0].style.visibility = "hidden";
+} else {
+    begContainer[0].style.visibility = "hidden";
+    startContainer[0].style.visibility = "visible";
 }
 
 
