@@ -17,6 +17,7 @@ body, html {
     background-color: aquamarine;
     padding: 5px;
     cursor: pointer;
+    width: fit-content;
 }
 
 .back-to-start:hover {
@@ -26,13 +27,6 @@ body, html {
 
 .description-projects {
     margin-top: 20px;
-    font-family: 'Inconsolata', monospace;
-    font-size: 18px;
-    line-height: 25px;
-}
-
-.project-nextdoor {
-    /* margin-top: 20px; */
     font-family: 'Inconsolata', monospace;
     font-size: 18px;
     line-height: 25px;
@@ -61,7 +55,7 @@ img {
     width: 80%;
 }
 
-.sticky {
+/* .sticky {
     position: fixed;
     top: 0;
     width: 100%
@@ -69,7 +63,7 @@ img {
 
 .sticky + .project-nextdoor {
     padding-top: 60px;
-}
+} */
 
 h2 {
     background-color: aquamarine;
@@ -109,6 +103,32 @@ h2 a {
 #mdb-title:hover {
     color: aquamarine;
     background-color: black;
+}
+
+/****** ABOUT PAGE ******/
+
+#typedtext {
+    margin-top: 40px;
+}
+
+.avatar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.avatar img {
+    margin-left: 85%;
+    width: 12%;
+
+}
+
+.hobby:hover {
+    background-color: black;
+    color: aquamarine;
+    cursor: pointer;
+    padding: 5px;
 }
 
 /***** FOR FULL SCREEN *****/

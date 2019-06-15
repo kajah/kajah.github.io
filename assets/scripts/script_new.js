@@ -82,6 +82,11 @@ about.addEventListener("mouseleave", function() {
     menuDescription.innerText = "";
 });
 
+about.addEventListener("click", function() {
+    onBegPage = false;
+    window.location.href = "about.html";
+});
+
 if (onBegPage) {
     begContainer[0].style.visibility = "visible";
     startContainer[0].style.visibility = "hidden";

@@ -1,12 +1,9 @@
 // set up text to print, each item in array is new line
 var text = new Array(
     "Hi!", 
-    "My name is Katharine Jiang",
-    "Currently a software engineer at <span id=\'blend\'>Blend</span>",
-    "Previously an intern at Nextdoor",
-    "Forever a golden bear.",
-    "I’m a hacker, designer, entrepreneur.",
-    "Talk to me about climbing, art, music, boots, games, and good books.",
+    "My name is Katharine Jiang.",
+    "I'm a hacker, designer, entrepreneur.",
+    "Talk to me about climbing, art, music, shoes, games, and good books.",
     );
 var type_speed = 10; // time delay of print out
 var row_index = 0; // start printing array at this position <-- row index
