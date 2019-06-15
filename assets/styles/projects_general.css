@@ -14,6 +14,8 @@ body, html {
 }
 
 .back-to-start {
+    background-color: aquamarine;
+    padding: 5px;
     cursor: pointer;
 }
 
@@ -54,6 +56,34 @@ img {
     width: 80%;
 }
 
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+
+.sticky + .project-nextdoor {
+    padding-top: 60px;
+}
+
+h2 {
+    background-color: aquamarine;
+    padding: 5px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    margin: 0px 0px 50px 0px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: aquamarine;
+}
+
 /***** FOR FULL SCREEN *****/
 @media only screen and (min-width: 768px) {
 	.full-container {
@@ -80,7 +110,7 @@ img {
 	.project-container, .content {
 		width: 66.67%;
 		margin-left: calc(33.33% + 50px);
-		margin-top: 50px;
+		/* margin-top: 20px; */
 		padding-left: 20px;
 		padding-right: 50px;
 	}
