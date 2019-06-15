@@ -24,7 +24,7 @@ body, html {
     color: aquamarine;
 }
 
-#description-nextdoor {
+.description-projects {
     margin-top: 20px;
     font-family: 'Inconsolata', monospace;
     font-size: 18px;
@@ -87,6 +87,28 @@ a {
 
 a:hover {
     color: aquamarine;
+}
+
+/***** BERKELEY PAGE ******/
+
+h2 a {
+    text-decoration: none;
+    color: black;
+}
+
+#berkeleytime-title:hover {
+    color: aquamarine;
+    background-color: black;
+}
+
+#innod-title:hover {
+    color: aquamarine;
+    background-color: black;
+}
+
+#mdb-title:hover {
+    color: aquamarine;
+    background-color: black;
 }
 
 /***** FOR FULL SCREEN *****/

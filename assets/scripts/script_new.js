@@ -69,6 +69,11 @@ tutorial.addEventListener("mouseleave", function() {
     menuDescription.innerText = "";
 });
 
+tutorial.addEventListener("click", function() {
+    onBegPage = false;
+    window.location.href = "berkeley.html";
+});
+
 about.addEventListener("mouseover", function() {
     menuDescription.innerText = "Hi my name is Katharine";
 });
