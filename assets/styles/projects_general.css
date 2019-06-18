@@ -105,6 +105,10 @@ h2 a {
     background-color: black;
 }
 
+#innod-logo {
+    width: 400px;
+}
+
 /****** ABOUT PAGE ******/
 
 #typedtext {
@@ -129,6 +133,26 @@ h2 a {
     color: aquamarine;
     cursor: pointer;
     padding: 5px;
+}
+
+#hacker:hover {
+    background-color: black;
+    color: aquamarine;
+    padding: 5px;
+}
+
+/****** FOR ART *******/
+
+.art {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.art img {
+    height: 100%;
+    width: auto;
+    padding: 20px;
 }
 
 /***** FOR FULL SCREEN *****/

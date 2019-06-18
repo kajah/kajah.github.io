@@ -75,7 +75,7 @@ tutorial.addEventListener("click", function() {
 });
 
 about.addEventListener("mouseover", function() {
-    menuDescription.innerText = "Hi my name is Katharine";
+    menuDescription.innerText = "Hi my name is Katharine...";
 });
 
 about.addEventListener("mouseleave", function() {
