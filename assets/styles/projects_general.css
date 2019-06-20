@@ -191,6 +191,34 @@ h2 a {
     }
 }
 
+/***** BOOK MODAL *****/
+.modal-container-books {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.8);
+	/* visibility: hidden; */
+}
+
+.modal-books {
+	position: relative;
+	background-color: white;
+	width: 400px;
+	height: auto;
+	padding: 20px;
+	z-index: 5;
+}
+
+.modal-text {
+    margin-top: 20px;
+    font-family: 'Inconsolata', monospace;
+    font-size: 18px;
+    line-height: 25px;
+}
+
 /****** FOR ART *******/
 /* 
 .art {
