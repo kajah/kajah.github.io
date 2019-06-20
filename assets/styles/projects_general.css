@@ -145,6 +145,52 @@ h2 a {
     padding: 5px;
 }
 
+/** SHOES MODAL */
+
+.modal {
+    position: absolute;
+	background-color: white;
+	width: 100%;
+    height: 100%;
+    visibility: hidden;
+	/* z-index: 5; */
+}
+
+.modal-close {
+    padding: 10px 0 0 20px;
+    cursor: pointer;
+}
+
+/* Create four equal columns that sits next to each other */
+.column-shoes {
+    flex: 33%;
+    max-width: 33%;
+    padding: 0 4px;
+}
+
+.column-shoes img {
+    margin-top: 10px;
+    padding-right: 20px;
+    vertical-align: middle;
+    width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+    .column-shoes {
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column-shoes {
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
 /****** FOR ART *******/
 /* 
 .art {
