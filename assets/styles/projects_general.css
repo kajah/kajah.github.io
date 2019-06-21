@@ -145,6 +145,11 @@ h2 a {
     padding: 5px;
 }
 
+#kanaad-pic {
+    position: absolute;
+    width: 400px;
+}
+
 /** SHOES MODAL */
 
 .modal {
