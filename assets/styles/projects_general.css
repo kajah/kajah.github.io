@@ -13,6 +13,10 @@ body, html {
 	justify-content: center; */
 }
 
+.full-container {
+    margin: 20px;
+}
+
 .back-to-start {
     background-color: aquamarine;
     padding: 5px;
@@ -27,6 +31,7 @@ body, html {
 
 .description-projects {
     margin-top: 20px;
+    margin-bottom: 20px;
     font-family: 'Inconsolata', monospace;
     font-size: 18px;
     line-height: 25px;

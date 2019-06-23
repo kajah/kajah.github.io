@@ -82,45 +82,6 @@ html {
 	color: #0D47A1;
 }
 
-/****** CONTENT STYLES ******/
-
-/* .project-container, .content {
-	padding-left: 8.33%;
-	padding-right: 8.33%;
-}
-
-.project {
-	margin-bottom: 50px;
-}
-
-.project:hover {
-	opacity: .75;
-}
-
-.project img {
-	max-width: 100%;
-	height: auto;
-}
-
-hr {
-	width: 75%;
-	opacity: .5;
-}
-
-.profile-pic img {
-	width: 70%;
-	height: auto;
-	margin: 20px 0;
-	border: 1px solid #455A64;
-}
-
-#launchvoy {
-	background-color: white;
-	padding-left: 20px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-} */
-
 /***** FOR FULL SCREEN *****/
 @media only screen and (min-width: 768px) {
 	.full-container {
@@ -154,62 +115,3 @@ hr {
 	}
 
 }
-
-/***** KEYFRAMES *****/
-
-/* @keyframes fadeIn {
-	0% {
-		opacity: 0;
-	}
-
-	100% {
-		opacity: 1;
-	}
-}
-
-@keyframes fadeInUp {
-	0% {
-		opacity: 0;
-		transform: translate3d(0, 100%, 0);
-	}
-
-	100% {
-		opacity: 1;
-		transform: none;
-	}
-}
-
-@keyframes fadeInRight {
-	0% {
-		opacity: 0;
-		transform: translate3d(100%, 0, 0);
-	}
-
-	100% {
-		opacity: 1;
-		transform: none;
-	}
-} */
-
-/***** CSS Transitions *****/
-
-/* .m-scene {
-	.scene_element {
-		animation-duration: 0.5s;
-		transition-timing-function: ease-in;
-		animation-fill-mode: both;
-	}
-
-	.scene_element--fadein {
-		animation-name: fadeIn;
-	}
-
-	.scene_element--fadeinup {
-		animation-name: fadeInUp;
-	}
-
-	.scene_element--fadeinright {
-		animation-name: fadeInRight;
-	}
-} */
-
