@@ -20,7 +20,6 @@ music.addEventListener("click", function() {
         musicEmbed.style.visibility = "hidden";
         musicVisible = false;
     }
-    
 });
 
 shoes.addEventListener("click", function() {

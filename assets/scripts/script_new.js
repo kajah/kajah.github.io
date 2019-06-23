@@ -40,33 +40,9 @@ quit.addEventListener("click", function() {
     window.location.assign("http://www.google.com");
 });
 
-cont.addEventListener("mouseover", function() {
-    menuDescription.innerText = "Current Employer: Blend";
-});
-
-cont.addEventListener("mouseleave", function() {
-    menuDescription.innerText = "";
-});
-
-save1.addEventListener("mouseover", function() {
-    menuDescription.innerText = "Previous Employer: Nextdoor";
-});
-
-save1.addEventListener("mouseleave", function() {
-    menuDescription.innerText = "";
-});
-
 save1.addEventListener("click", function() {
     onBegPage = false;
     window.location.href = "nextdoor.html";
-});
-
-tutorial.addEventListener("mouseover", function() {
-    menuDescription.innerText = "Education: University of California, Berkeley '19";
-});
-
-tutorial.addEventListener("mouseleave", function() {
-    menuDescription.innerText = "";
 });
 
 tutorial.addEventListener("click", function() {
@@ -74,18 +50,46 @@ tutorial.addEventListener("click", function() {
     window.location.href = "berkeley.html";
 });
 
-about.addEventListener("mouseover", function() {
-    menuDescription.innerText = "Hi my name is Katharine...";
-});
-
-about.addEventListener("mouseleave", function() {
-    menuDescription.innerText = "";
-});
-
 about.addEventListener("click", function() {
     onBegPage = false;
     window.location.href = "about.html";
 });
+
+if (window.screen.availWidth >= 768) {
+    cont.addEventListener("mouseover", function() {
+        menuDescription.innerText = "Current Employer: Blend";
+    });
+    
+    cont.addEventListener("mouseleave", function() {
+        menuDescription.innerText = "";
+    });
+    
+    save1.addEventListener("mouseover", function() {
+        menuDescription.innerText = "Previous Employer: Nextdoor";
+    });
+    
+    save1.addEventListener("mouseleave", function() {
+        menuDescription.innerText = "";
+    });
+    
+    tutorial.addEventListener("mouseover", function() {
+        menuDescription.innerText = "Education: University of California, Berkeley '19";
+    });
+    
+    tutorial.addEventListener("mouseleave", function() {
+        menuDescription.innerText = "";
+    });
+    
+    about.addEventListener("mouseover", function() {
+        menuDescription.innerText = "Hi my name is Katharine...";
+    });
+    
+    about.addEventListener("mouseleave", function() {
+        menuDescription.innerText = "";
+    });
+}
+
+
 
 if (onBegPage) {
     begContainer[0].style.visibility = "visible";
