@@ -4,6 +4,21 @@ backToStart.addEventListener("click", function() {
     window.location.href = "index.html?fromProjectPage=1";
 });
 
+window.addEventListener('popstate', function() {
+    window.location.href = "index.html?fromProjectPage=1";
+});
+
+// document.addEventListener("keypress", keyEvents);
+
+// function keyEvents(event) {
+//     var x = event.key;
+
+//     if (x == "a") {
+//         alert ("You pressed the 'backspace' key!");
+//     }
+// }
+
+
 // // When the user scrolls the page, execute myFunction 
 // window.onscroll = function() {myFunction()};
 
