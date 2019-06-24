@@ -137,14 +137,20 @@ h2 a {
 
 }
 
-.hobby:hover {
+.hobby {
     background-color: black;
     color: aquamarine;
     cursor: pointer;
     padding: 5px;
 }
 
-#hacker:hover {
+#hacker {
+    background-color: black;
+    color: aquamarine;
+    padding: 5px;
+}
+
+#linkedin {
     background-color: black;
     color: aquamarine;
     padding: 5px;
@@ -153,12 +159,6 @@ h2 a {
 #kanaad-pic {
     position: absolute;
     width: 400px;
-}
-
-#linkedin:hover {
-    background-color: black;
-    color: aquamarine;
-    padding: 5px;
 }
 
 /** SHOES MODAL */
@@ -301,6 +301,41 @@ h2 a {
 
 /***** FOR FULL SCREEN *****/
 @media only screen and (min-width: 768px) {
+
+    .hobby {
+        background-color: white;
+        color: black;
+    }
+
+    .hobby:hover {
+        background-color: black;
+        color: aquamarine;
+        cursor: pointer;
+        padding: 5px;
+    }
+
+    #hacker {
+        background-color: white;
+        color: black;
+    }
+    
+    #hacker:hover {
+        background-color: black;
+        color: aquamarine;
+        padding: 5px;
+    }
+
+    #linkedin {
+        background-color: white;
+        color: black;
+    }
+    
+    #linkedin:hover {
+        background-color: black;
+        color: aquamarine;
+        padding: 5px;
+    }
+
 	.full-container {
 		padding: 20px 50px;
 	}
