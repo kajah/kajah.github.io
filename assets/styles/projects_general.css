@@ -155,6 +155,12 @@ h2 a {
     width: 400px;
 }
 
+#linkedin:hover {
+    background-color: black;
+    color: aquamarine;
+    padding: 5px;
+}
+
 /** SHOES MODAL */
 
 .modal {

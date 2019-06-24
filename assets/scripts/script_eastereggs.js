@@ -10,9 +10,12 @@ var musicEmbed      = document.getElementById("music-embed"),
     hi              = document.getElementById("hi"),
     originalText    = document.getElementById("typedtext"),
     newText         = document.getElementById("typewriter-text"),
-    easterMusic     = document.getElementById("beats");
+    easterMusic     = document.getElementById("beats"),
+    katharine       = document.getElementById("katharine"),
+    contact         = document.getElementById("contact");
 
 var numClicksHi = 0;
+var numClicksName = 0;
 
 musicEmbed.style.visibility = "hidden";
 kanaad.style.visibility = "hidden";
@@ -67,6 +70,12 @@ newText.addEventListener("click", function() {
     numClicksHi = 0;
 });
 
+katharine.addEventListener("click", function() {
+    numClicksName += 1;
+    if (numClicksName > 3) {
+        contact.innerHTML = "Contact me at katharine.jiang9@gmail.com";
+    }
+});
 
 document.addEventListener("keypress", keyEvents);
 
