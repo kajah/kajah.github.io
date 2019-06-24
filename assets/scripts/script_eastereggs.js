@@ -9,7 +9,8 @@ var musicEmbed      = document.getElementById("music-embed"),
     and             = document.getElementById("and"),
     hi              = document.getElementById("hi"),
     originalText    = document.getElementById("typedtext"),
-    newText         = document.getElementById("typewriter-text");
+    newText         = document.getElementById("typewriter-text"),
+    easterMusic     = document.getElementById("beats");
 
 var numClicksHi = 0;
 
@@ -17,6 +18,7 @@ musicEmbed.style.visibility = "hidden";
 kanaad.style.visibility = "hidden";
 kanaadPic.style.visibility = "hidden";
 newText.style.visibility = "hidden";
+easterMusic.style.visibility = "hidden";
 
 music.addEventListener("click", function() {
     if (!musicVisible) {
@@ -68,11 +70,70 @@ newText.addEventListener("click", function() {
 
 document.addEventListener("keypress", keyEvents);
 
+var name = '';
+
 function keyEvents(event) {
     var key = event.key;
 
-    if (key == "a") {
-        alert ("You pressed the 'backspace' key!");
+    if (key == 'k') {
+        if (name.length == 0) {
+            name += 'k';
+        }
+    }
+
+    if (key == 'a') {
+        if (name.substr(-1) == 'k' || name.substr(-1) == 'h') {
+            name += 'a';
+        } else {
+            name = '';
+        }
+    }
+
+    if (key == 't') {
+        if (name.substr(-1) == 'a') {
+            name += 't';
+        } else {
+            name = '';
+        }
+    }
+
+    if (key == 'h') {
+        if (name.substr(-1) == 't') {
+            name += 'h';
+        } else {
+            name = '';
+        }
+    }
+
+    if (key == 'r') {
+        if (name.substr(-1) == 'a') {
+            name += 'r';
+        } else {
+            name = '';
+        }
+    }
+
+    if (key == 'i') {
+        if (name.substr(-1) == 'r') {
+            name += 'i';
+        } else {
+            name = '';
+        }
+    }
+
+    if (key == 'n') {
+        if (name.substr(-1) == 'i') {
+            name += 'n';
+        } else {
+            name = '';
+        }
+    }
+
+    if (key == 'e') {
+        name += 'e';
+        if (name == 'katharine') {
+            easterMusic.style.visibility = "visible";
+        }
     }
 }
 
