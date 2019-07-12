@@ -34,11 +34,11 @@ music.addEventListener("click", function() {
 });
 
 shoes.addEventListener("click", function() {
-    modalShoe.style.visibility = "visible";
+    modalShoe.style.display = "inline";
 });
 
 modalClose.addEventListener("click", function() {
-    modalShoe.style.visibility = "hidden";
+    modalShoe.style.display = "none";
 });
 
 and.addEventListener("click", function() {
@@ -142,6 +142,7 @@ function keyEvents(event) {
         name += 'e';
         if (name == 'katharine') {
             easterMusic.style.visibility = "visible";
+            name = '';
         }
     }
 }
