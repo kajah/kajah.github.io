@@ -1,0 +1,212 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+  position: relative;
+}
+
+li {
+  max-width: fit-content;
+}
+
+li a {
+  cursor: auto;
+  text-decoration: none;
+}
+
+li a:hover {
+  cursor: auto;
+  text-decoration: none;
+}
+
+.all-wrapper {
+  margin-top: 15%;
+}
+
+/* -------- NAV BAR ---------- */
+
+.nav-wrapper {
+  position: fixed;
+  height: 100%;
+  padding: 30px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  width: 25%;
+}
+
+.nav-menu-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-menu-box {
+  display: block;
+  border: 1px solid black;
+  height: 10px;
+  width: 35px;
+  left: -25px;
+  top: 15px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.nav-menu-box:hover {
+  background-color: black;
+}
+
+.box-active {
+  background-color: black;
+}
+
+.nav-menu-word {
+  visibility: hidden;
+  color: black;
+  cursor: auto;
+}
+
+.word-active {
+  visibility: visible;
+}
+
+/* --------- CONTENT --------- */
+.content-wrapper {
+  height: 100%;
+  margin-left: 33.33%;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+.section {
+  height: auto;
+  margin: 100px 0px;
+}
+
+.section h2 {
+  margin-left: 10px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+hr.section-divider {
+  border: 1px dotted black;
+  border-radius: 5px;
+}
+
+/* ---------- MINI SECTION --------- */
+
+.mini-section {
+  margin: 25px;
+}
+
+.mini-section-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.mini-section-content .description {
+  width: 100%;
+  /* text-align: left; */
+  /* margin-right: 30px; */
+}
+
+#music .description {
+  margin-top: 15px;
+}
+
+.description h4 {
+  color: gray;
+  margin-bottom: 15px;
+  /* text-align: center; */
+}
+
+.description h6 {
+  color: grey;
+}
+
+.description p {
+  color: darkgray;
+}
+
+.pic-wrapper {
+  width: 100%;
+}
+
+.pic-wrapper img {
+  height: 100%;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 2px;
+  margin: 2px;
+}
+
+/* ------- MINI SECTION WITHOUT PICS --------- */
+.mini-section-content.no-pic {
+  display: flex;
+  flex-direction: column;
+}
+
+.mini-section-content.no-pic .description {
+  width: 100%;
+  text-align: start;
+}
+
+/* ------------- FOR FULL SCREEN ----------*/
+
+@media only screen and (min-width: 768px) {
+  .section h2 {
+    margin-bottom: 30px;
+    text-align: left;
+  }
+
+  .mini-section {
+    margin: 15px;
+  }
+  
+  .mini-section-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  #travel .mini-section-content {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  #music .mini-section-content {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  #music .description {
+    margin-left: 25px;
+    /* text-align: right; */
+  }
+
+  
+  .mini-section-content .description {
+    width: 50%;
+    text-align: start;
+    margin-right: 20px;
+  }
+  
+  .description h4 {
+    text-align: left;
+  }
+  
+  .description p {
+    color: darkgray;
+  }
+  
+  .pic-wrapper {
+    width: 50%;
+  }
+
+  /* .mini-section-content.no-pic {
+    align-items: center;
+  } */
+}
