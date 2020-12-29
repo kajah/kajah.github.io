@@ -130,13 +130,15 @@ html {
 	align-self: flex-end;
 
 	margin: 10px;
+	font-size: 20px;
 
 	background-color: antiquewhite;
 	border: none;
 }
 
-.modal-close:hover {
+.modal-close:hover, #quit-modal-close:hover {
 	color: aquamarine;
+	cursor: pointer;
 }
 
 /********** LINKS ***********/
