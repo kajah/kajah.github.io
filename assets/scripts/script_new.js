@@ -32,6 +32,7 @@ start.addEventListener("click", function() {
     begContainer[0].style.visibility = "hidden";
     startContainer[0].style.visibility = "visible";
     onBegPage = false;
+    closeAllModals();
 });
 
 back.addEventListener("click", function() {
