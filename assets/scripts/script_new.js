@@ -5,10 +5,20 @@ var begContainer    = document.getElementsByClassName("beg-container"),
     quit            = document.getElementById("quit"),
     cont            = document.getElementById("continue"),
     save1           = document.getElementById("save1"),
+    save2           = document.getElementById("save2"),
     tutorial        = document.getElementById("tutorial"),
     about           = document.getElementById("about"),
     back            = document.getElementById("back"),
     menuDescription = document.getElementById("menu-description");
+    aboutModal      = document.getElementById("about-modal");
+    tutorialModal   = document.getElementById("tutorial-modal");
+    nextdoorModal   = document.getElementById("nextdoor-modal");
+    blendModal      = document.getElementById("blend-modal");
+    contModal       = document.getElementById("cont-modal");
+    quitModal       = document.getElementById("quit-modal");
+    modalClose      = document.getElementsByClassName("modal-close");
+    quitModalClose  = document.getElementById("quit-modal-close");
+    modals          = document.getElementsByClassName("modal");
 
 var urlParams = new URLSearchParams(window.location.search);
 if (urlParams) {
@@ -28,68 +38,45 @@ back.addEventListener("click", function() {
     begContainer[0].style.visibility = "visible";
     startContainer[0].style.visibility = "hidden";
     onBegPage = true;
+    closeAllModals();
     // window.history.pushState({}, document.title, "/" + "index.html");
 });
 
 cont.addEventListener("click", function() {
-    // window.location.assign("http://www.blend.com");
-    window.open("http://www.blend.com", '_blank');
+    onBegPage = false;
+    closeAllModals();
+    contModal.classList.toggle("closed");
 });
 
 quit.addEventListener("click", function() {
-    window.location.assign("http://www.google.com");
+    onBegPage = true;
+    closeAllModals();
+    quitModal.classList.toggle("closed");
 });
 
 save1.addEventListener("click", function() {
     onBegPage = false;
-    window.location.href = "nextdoor.html";
+    closeAllModals();
+    blendModal.classList.toggle("closed");
 });
+
+save2.addEventListener("click", function() {
+    onBegPage = false;
+    closeAllModals();
+    nextdoorModal.classList.toggle("closed");
+})
 
 tutorial.addEventListener("click", function() {
     onBegPage = false;
-    window.location.href = "berkeley.html";
+    closeAllModals();
+    tutorialModal.classList.toggle("closed");
 });
 
 about.addEventListener("click", function() {
     onBegPage = false;
-    window.location.href = "about.html";
+    closeAllModals();
+    aboutModal.classList.toggle("closed");
 });
-
-if (window.screen.availWidth >= 768) {
-    cont.addEventListener("mouseover", function() {
-        menuDescription.innerText = "Current Employer: Blend";
-    });
-    
-    cont.addEventListener("mouseleave", function() {
-        menuDescription.innerText = "";
-    });
-    
-    save1.addEventListener("mouseover", function() {
-        menuDescription.innerText = "Previous Employer: Nextdoor";
-    });
-    
-    save1.addEventListener("mouseleave", function() {
-        menuDescription.innerText = "";
-    });
-    
-    tutorial.addEventListener("mouseover", function() {
-        menuDescription.innerText = "Education: University of California, Berkeley '19";
-    });
-    
-    tutorial.addEventListener("mouseleave", function() {
-        menuDescription.innerText = "";
-    });
-    
-    about.addEventListener("mouseover", function() {
-        menuDescription.innerText = "Hi my name is Katharine...";
-    });
-    
-    about.addEventListener("mouseleave", function() {
-        menuDescription.innerText = "";
-    });
-}
-
-
 
 if (onBegPage) {
     begContainer[0].style.visibility = "visible";
@@ -99,4 +86,19 @@ if (onBegPage) {
     startContainer[0].style.visibility = "visible";
 }
 
+function closeAllModals() {
+    for (const modal of modals) {
+        modal.classList.add("closed");
+    }
+}
+
+closeAllModals();
+for (const button of modalClose) {
+    button.addEventListener("click", function() {
+        closeAllModals();
+        window.location.href = "index.html?fromProjectPage=1";
+    });
+}
+
+quitModalClose.addEventListener("click", closeAllModals);
 

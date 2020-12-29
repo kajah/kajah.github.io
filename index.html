@@ -2,9 +2,11 @@
 <html>
 <head>
 	<title>Katharine Jiang</title>
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/css/animsition.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/css/animsition.min.css"> -->
 	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="./assets/styles/index.css">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +14,7 @@
 	
 </head>
 <body>
-
+	
 	<div class="beg-container">
 		<div id="start">Start</div>
 		<div id="quit">Quit</div>
@@ -20,13 +22,106 @@
 	<div class="start-container">
 		<div id="continue">Continue</div>
 		<div id="save1">Save 1</div>
+		<div id="save2">Save 2</div>
 		<div id="tutorial">Tutorial</div>
 		<div id="about">About</div>
 		<div id="back">Back</div>
-		<div id="menu-description"></div>
+		<!-- <div id="menu-description"></div> -->
 	</div>
-	
 
+	<div class="modal" id="about-modal">
+		<button class="modal-close">X</button>
+		<div class="modal-content">
+			<p>Hi! My name is <span style="font-weight: 700;">Katharine Jiang</span>. I’d probably describe myself as a jack of all trades.</p>
+			<p>You can reach me on <a href="https://twitter.com/katharine_jiang" target="_" style="font-weight: 700;">Twitter</a> or <a href="https://www.linkedin.com/in/katharine-jiang/" target="_">LinkedIn</a> and talk to me about any of the following!</p>
+			<p>* My <a href="https://www.wizform.com" target="_">company</a></p>
+			<p>* Startup <a href="https://www.polymathcp.com/" target="_">investing</a></p>
+			<p>* <a href="https://wearemovingforward.github.io/" target="_">Inclusive & equitable venture capital fundraising</a></p>
+			<p>* My podcast <a href="https://www.shoesoffpls.com/" target="_">Shoes Off Pls</a>, elevating Asian American stories</p>
+			<p>* Music (piano, guitar, music production, composing, Glass Animals, Yuja Wang, Foals, …)</p>
+			<p>* Indie Video Games (Supergiant Games, Zero Escape: Nonary Games, Ace Attorney, Celeste, Undertale, A Walk in the Woods, Oxenfree, Life is Strange, …)</p>
+			<p>* Good books</p>
+			<p>* A trusty pair (or 2 or 5) of black boots</p>
+		</div>
+	</div>
+
+	<div class="modal" id="tutorial-modal">
+		<button class="modal-close">X</button>
+		<div class="modal-content">
+			<p style="font-weight: 700;">University of California, Berkeley</p>
+			<p>Class of 2018 (December)</p>
+			<p>BA in Computer Science</p>
+			<p>Throughout my 3.5 years at Berkeley I've had the opportunity to join amazing student organizations. Some quick highlights below! <span style="font-weight: 700;">Go Bears!!</span></p>
+
+			<p style="font-size: 18px;"><a href="https://berkeleytime.com/landing" target="_blank">BerkeleyTime</a></p>
+			<p>BerkeleyTime is a web application for student, built by students. It allows students to easily search through 12000+ courses in the Berkeley catalog using different filters. Class enrollment is often a stressful time so BerkeleyTime relieves some of the stress by providing enrollment history, grade distributions, prereqs, section times, and much more all in one spot.</p>
+			<p>We were a team of about 12 people under the Office of the Chief Technology Officer in Berkeley's student government organization (ASUC). I joined in the beginning of my junior year as a full stack engineer while the website was going through a significant redesign and refactoring of the codebase. I helped lead the rewrite of the frontend codebase to ReactJS. I learned a lot about the fundamentals of React, and worked with very talented individuals. I'm so proud of the current team for seeing the redesign through and creating a better experience for thousands of students.</p>
+
+			<p style="font-size: 18px;"><a href="https://innovativedesign.club/" target="_blank">Innovative Design</a></p>
+			<p>Innovative Design is a creative student agency that aims to Make Berkeley Beautiful. The organization has graphic design, photography, and web design teams that take on requests from other student organizations pro bono. It also offers DeCals (Berkeley classes created and run by students) on design and photography.</p>
+			<p>I spent 3 semesters in Innovative Design, each semester on a web design team. During my last semester, I joined the Officer Board and led my own web team.</p>
+			<p>I owe Innovative Design for nurturing my web development skills and for opening my eyes to the world of design. Thank you for making Berkeley beautiful.</p>
+
+			<p style="font-size: 18px;"><a href="https://www.facebook.com/mobiledevsberkeley/" target="_blank">Mobile Developers of Berkeley</a></p>
+			<p>Mobile Developers of Berkeley (MDB) was the first student organization I joined at Berkeley. The organization puts members through a bootcamp where you learn how to create an app for either Android or iOS in just a couple of weeks. After the bootcamp, you are free to build your own mobile app with the goal of publishing it on the Google or Apple store. I came into this organization as a complete newbie to Android development. I learned a lot and fast and came out with Version 1.0 and 2.0 of an Android app over the course of 2 semesters. The app, called WingIt, lets users experience spontaneous adventures anywhere, anytime. It creates a trip itinerary on the go, instead of planning the entire trip beforehand.</p>
+			<p>Thank you MDB for showing me the infinite possibilites I can pursue with computer science outside of schoolwork. My experience in this organization has inspired me to join other organizations and pursue my ambitions.</p>
+		</div>
+	</div>
+
+	<div class="modal" id="nextdoor-modal">
+		<button class="modal-close">X</button>
+		<div class="modal-content">
+			<p style="font-weight: 700;">Nextdoor</p>
+			<p>Software Engineer</p>
+			<p>ReactJS, Django, SQL</p>
+			<p>May - August 2018</p>
+			<p><a href="https://nextdoor.com/" target="_">Nextdoor</a> is a social media platform connecting neighbors to build stronger communities. I joined as a full stack engineering intern on the Real Estate team. Over 12 weeks, I helped build and ship 3 product features: <span style="font-weight: 700;">Polls</span>, <span style="font-weight: 700;">Events</span>, and <span style="font-weight: 700;">Map Filters</span>. I learned to fail fast and iterate, navigate and refactor a huge codebase, write comprehensive unit tests, and conduct user research.</p>
+		</div>
+	</div>
+
+	<div class="modal" id="blend-modal">
+		<button class="modal-close">X</button>
+		<div class="modal-content">
+			<p style="font-weight: 700;">Blend</p>
+			<p>Software Engineer</p>
+			<p>Typescript, ReactJS, PosgreSQL, MongoDB</p>
+			<p>July 2019 - December 2020</p>
+			<p><a href="https://blend.com/" target="_">Blend</a> is a B2B fintech platform building products that streamline mortgage and other loan processes. In my 1.5 years at Blend, I became an efficient and thoughtful engineer, able to take product requirements, translate them into a comprehensive technical spec, and finally build and ship a scalable feature in collaboration with my team. I enhanced my project management skills, as well as my full stack capabilities - from database management, to backend apis, UI, and data monitoring.</p>
+			<p>In more detail:</p>
+			<p><span style="font-weight: 700;">Disclosures Team</span> (Backend, ~ 1 year)</p>
+			<p>* Built a new service from scratch that allowed for a significant increase in volume to the team’s solutions</p>
+			<p>* Improved our internal E2E testing framework to be more robust</p>
+			<p>* Designed and built multiple integrations with third parties</p>
+			<p>* Facilitated integration handoffs to a new internal integrations team</p>
+
+			<p><span style="font-weight: 700;">Disclosures Team</span> (Full-stack, ~ 6 months)</p>
+			<p>* Joined as the first engineer on the team</p>
+			<p>* Built the V0 implementation of our solution from ground up</p>
+			<p>* Designed, built, and shipped 3 additional features, increasing our volume from a couple to hundreds of orders per month</p>
+			<p>* Managed projects within the team, collaborating with product and design</p>
+			<p>* Mentored a junior engineer on the team, helping them onboard (remotely) and guiding them through their first big project</p>
+		</div>
+	</div>
+
+	<div class="modal" id="cont-modal">
+		<button class="modal-close">X</button>
+		<div class="modal-content">
+			<p>I am currently co-founder of my startup, <a href="https://wizform.com" style="font-weight: 700;" target="_">WizForm</a>. We imagine a world where anyone can start a small business and build their dream. We’re removing barriers from incorporation and admin processes so that SMB owners can just focus on what they love to do.</p>
+			<p>If you would like to chat, send me a <a href="mailto:katharine@wizform.com" target="_">note</a>.</p>
+		</div>
+	</div>
+
+	<div class="modal" id="quit-modal">
+		<button id="quit-modal-close">X</button>
+		<div class="modal-content">
+			<p>Quitting so soon? Drop a line <a href="https://twitter.com/katharine_jiang" target="_">here</a>!</p>
+		</div>
+	</div>
+
+	
+	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="assets/scripts/script_new.js"></script>
 
 
