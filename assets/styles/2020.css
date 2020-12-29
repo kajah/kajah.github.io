@@ -1,0 +1,177 @@
+* {
+	box-sizing: border-box;
+}
+
+
+body, html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #C5CAE9;
+	/* line-height: 40px; */
+}
+
+p {
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+.body-container {
+  /* display: flex;
+  flex-direction: column;
+  align-items: stretch; */
+  width: 100%;
+  height: 100%;
+}
+
+.reflection-header {
+  text-align: center;
+  /* background-color: #C5CAE9; */
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.main-content-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 66%;
+}
+
+.character-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  height: 50%;
+  
+  /* background-color: #C5CAE9; */
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.photo-container {
+  width: 300px;
+  max-width: 100%;
+  height: 500px;
+  max-height: 90%;
+}
+
+.photo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.photo-buttons {
+  margin-top: 10px;
+}
+
+button {
+  font-family: 'Ubuntu Mono', monospace;
+  background-color: transparent;
+  border: cornflowerblue 1px solid;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.stats-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  height: 50%;
+  overflow: auto;
+
+  padding: 20px;
+}
+
+.stats-header {
+  /* text-align: start; */
+}
+
+.stats-content {
+  /* text-align: center; */
+}
+
+.description-container {
+  width: 100%;
+  height: 33%;
+
+  /* background-color: #C5CAE9; */
+  padding: 20px;
+
+}
+
+.description-content-container {
+  min-height: 100px;
+
+  margin: 10%;
+  padding: 10px 20px;
+
+  background-color: antiquewhite;
+  border: white 5px solid;
+}
+
+/******** STATS **********/
+.square-container {
+  display: flex;
+}
+
+.square {
+  width: 10px;
+  height: 10px;
+  border: black 1px solid;
+}
+
+.square.colored {
+  background-color: cornflowerblue;
+}
+
+.stat-title {
+  cursor: pointer;
+}
+
+.stat-title:hover {
+  color: cornflowerblue;
+}
+
+
+/***** FOR FULL SCREEN *****/
+@media only screen and (min-width: 768px) {
+  .main-content-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50%;
+  }
+
+  .character-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    width: 50%;
+    height: 100%;
+
+    margin-right: 20px;
+  }
+
+  .stats-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 50%;
+    height: 100%;
+  }
+
+  .description-container {
+    width: 100%;
+    height: 50%;
+  }
+}
