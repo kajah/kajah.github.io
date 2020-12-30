@@ -21,7 +21,8 @@ p {
   flex-direction: column;
   align-items: stretch; */
   width: 100%;
-  height: 100%;
+  height: 70%;
+  max-height: 70%;
 }
 
 .reflection-header {
@@ -105,14 +106,16 @@ button {
   height: 33%;
 
   /* background-color: #C5CAE9; */
-  padding: 20px;
+  /* padding: 10px 20px 20px 20px; */
 
 }
 
 .description-content-container {
   min-height: 100px;
+  max-height: 100%;
+  overflow: auto;
 
-  margin: 10px 10%;
+  margin: 40px 10%;
   padding: 10px 20px;
 
   background-color: antiquewhite;
@@ -127,6 +130,7 @@ button {
 
 .audio-container {
   width: 100%;
+  max-height: 15%;
   position: fixed;
   bottom: 0;
   padding: 0 10% 20px 10%;
