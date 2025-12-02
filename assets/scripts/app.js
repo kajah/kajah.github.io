@@ -335,7 +335,33 @@ class App {
         // Keyboard controls for timeline (only when on home section)
         if (this.state.activeSection === 'home') {
             this.attachTimelineListeners();
+            this.attachGridHoverListeners();
         }
+    }
+
+    attachGridHoverListeners() {
+        // Remove existing listeners if any
+        if (this.gridHoverHandlers) {
+            this.gridHoverHandlers.forEach(handler => {
+                handler.element.removeEventListener('mouseenter', handler.enterHandler);
+            });
+        }
+
+        this.gridHoverHandlers = [];
+        
+        // Add hover listeners to each grid item
+        document.querySelectorAll('.grid-item').forEach((item, index) => {
+            const enterHandler = () => {
+                this.setState({ timelinePosition: index });
+            };
+            
+            item.addEventListener('mouseenter', enterHandler);
+            
+            this.gridHoverHandlers.push({
+                element: item,
+                enterHandler: enterHandler
+            });
+        });
     }
 
     attachTimelineListeners() {
