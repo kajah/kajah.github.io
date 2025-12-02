@@ -3,7 +3,8 @@ class App {
     constructor() {
         this.state = {
             activeSection: 'home',
-            timelinePosition: 0 // 0 = first grid, 1 = second grid, 2 = third grid
+            timelinePosition: 0, // 0 = first grid, 1 = second grid, 2 = third grid
+            openModal: null // null, 'chapter1', 'chapter2', or 'chapter3'
         };
         this.init();
     }
@@ -19,6 +20,7 @@ class App {
             ${this.renderHeader()}
             ${this.renderMain()}
             ${this.renderFooter()}
+            ${this.renderModals()}
         `;
     }
 
@@ -313,6 +315,55 @@ class App {
         `;
     }
 
+    renderModals() {
+        const { openModal } = this.state;
+        if (!openModal) return '';
+        
+        return `
+            <div class="modal-overlay visible">
+                <div class="modal-content-wrapper">
+                    ${openModal === 'chapter1' ? this.renderChapter1Modal() : ''}
+                    ${openModal === 'chapter2' ? this.renderChapter2Modal() : ''}
+                    ${openModal === 'chapter3' ? this.renderChapter3Modal() : ''}
+                    <button class="modal-close">×</button>
+                </div>
+            </div>
+        `;
+    }
+
+    renderChapter1Modal() {
+        return `
+            <div class="chapter-modal">
+                <h2 class="chapter-title">Chapter 1: San Francisco</h2>
+                <div class="chapter-content">
+                    <p>Content for Chapter 1 goes here...</p>
+                </div>
+            </div>
+        `;
+    }
+
+    renderChapter2Modal() {
+        return `
+            <div class="chapter-modal">
+                <h2 class="chapter-title">Chapter 2: New York City</h2>
+                <div class="chapter-content">
+                    <p>Content for Chapter 2 goes here...</p>
+                </div>
+            </div>
+        `;
+    }
+
+    renderChapter3Modal() {
+        return `
+            <div class="chapter-modal">
+                <h2 class="chapter-title">Chapter 3: Washington DC</h2>
+                <div class="chapter-content">
+                    <p>Content for Chapter 3 goes here...</p>
+                </div>
+            </div>
+        `;
+    }
+
     attachEventListeners() {
         // Navigation
         document.querySelectorAll('.nav-link').forEach(link => {
@@ -332,9 +383,29 @@ class App {
             }
         });
 
-        // Keyboard controls for timeline (only when on home section)
+        // Modal close button and overlay
+        const modalOverlay = document.querySelector('.modal-overlay');
+        const modalCloseBtn = document.querySelector('.modal-close');
+        
+        if (modalOverlay) {
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) {
+                    this.closeModal();
+                }
+            });
+        }
+        
+        if (modalCloseBtn) {
+            modalCloseBtn.addEventListener('click', () => {
+                this.closeModal();
+            });
+        }
+
+        // Keyboard controls for timeline - always attach, but check section in handler
+        this.attachTimelineListeners();
+        
+        // Grid hover listeners (only when on home section)
         if (this.state.activeSection === 'home') {
-            this.attachTimelineListeners();
             this.attachGridHoverListeners();
         }
     }
@@ -344,22 +415,33 @@ class App {
         if (this.gridHoverHandlers) {
             this.gridHoverHandlers.forEach(handler => {
                 handler.element.removeEventListener('mouseenter', handler.enterHandler);
+                handler.element.removeEventListener('click', handler.clickHandler);
             });
         }
 
         this.gridHoverHandlers = [];
         
-        // Add hover listeners to each grid item
+        // Add hover and click listeners to each grid item
         document.querySelectorAll('.grid-item').forEach((item, index) => {
             const enterHandler = () => {
                 this.setState({ timelinePosition: index });
             };
             
+            const clickHandler = () => {
+                this.setState({ timelinePosition: index });
+                // Small delay to ensure position is set before opening modal
+                setTimeout(() => {
+                    this.openChapterModal();
+                }, 0);
+            };
+            
             item.addEventListener('mouseenter', enterHandler);
+            item.addEventListener('click', clickHandler);
             
             this.gridHoverHandlers.push({
                 element: item,
-                enterHandler: enterHandler
+                enterHandler: enterHandler,
+                clickHandler: clickHandler
             });
         });
     }
@@ -372,6 +454,14 @@ class App {
 
         // Add keyboard event listener
         this.timelineKeyHandler = (e) => {
+            // Allow Escape to work even when modal is open
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                this.closeModal();
+                return;
+            }
+            
+            // Other keys only work on home section
             if (this.state.activeSection !== 'home') return;
             
             if (e.key === 'ArrowLeft') {
@@ -380,10 +470,29 @@ class App {
             } else if (e.key === 'ArrowRight') {
                 e.preventDefault();
                 this.moveTimeline('right');
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                this.openChapterModal();
             }
         };
 
         document.addEventListener('keydown', this.timelineKeyHandler);
+    }
+
+    openChapterModal() {
+        const chapterMap = {
+            0: 'chapter1',
+            1: 'chapter2',
+            2: 'chapter3'
+        };
+        const chapter = chapterMap[this.state.timelinePosition];
+        if (chapter) {
+            this.setState({ openModal: chapter });
+        }
+    }
+
+    closeModal() {
+        this.setState({ openModal: null });
     }
 
     setState(newState) {
@@ -392,15 +501,16 @@ class App {
                                 newState.timelinePosition !== this.state.timelinePosition;
         const sectionChanged = newState.activeSection && 
                                newState.activeSection !== this.state.activeSection;
+        const modalChanged = newState.openModal !== undefined;
         
         this.state = { ...this.state, ...newState };
         
         // If only timeline position changed and we're on home, update just the position
         if (wasOnHome && this.state.activeSection === 'home' && timelineChanged && 
-            !sectionChanged && Object.keys(newState).length === 1) {
+            !sectionChanged && !modalChanged && Object.keys(newState).length === 1) {
             this.updateTimelinePosition();
         } else {
-            // Full re-render for other state changes
+            // Full re-render for other state changes (including modal changes)
             this.render();
             this.attachEventListeners();
         }
@@ -439,11 +549,14 @@ class App {
 }
 
 // Initialize app when DOM is ready
+let app;
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-        new App();
+        app = new App();
+        window.app = app; // Make app accessible globally for onclick handlers
     });
 } else {
-    new App();
+    app = new App();
+    window.app = app; // Make app accessible globally for onclick handlers
 }
 
