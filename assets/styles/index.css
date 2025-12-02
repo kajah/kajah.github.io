@@ -174,6 +174,67 @@ body {
     letter-spacing: 0.1em;
 }
 
+.timeline-container {
+    width: 100%;
+    padding: 3rem 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timeline-track {
+    position: relative;
+    width: 100%;
+    height: 4px;
+    margin-top: 60px;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 50%;
+    left: 16.67%;
+    width: 66.66%;
+    height: 4px;
+    background-color: #000;
+    transform: translateY(-50%);
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: #000;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mini-person {
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+    cursor: pointer;
+}
+
+.person-icon {
+    font-size: 2rem;
+    display: block;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
 .home-content {
     width: 100%;
     /* Second container styles will go here */

@@ -2,7 +2,8 @@
 class App {
     constructor() {
         this.state = {
-            activeSection: 'home'
+            activeSection: 'home',
+            timelinePosition: 0 // 0 = first grid, 1 = second grid, 2 = third grid
         };
         this.init();
     }
@@ -67,23 +68,34 @@ class App {
             <section class="section home-section">
                 <div class="home-container">
                     <div class="image-grid">
-                        <div class="grid-item">
+                        <div class="grid-item" data-grid-index="0">
                             <img src="./assets/images/2025/sf.jpg" alt="SF">
                             <div class="grid-overlay">
                                 <span class="overlay-text">SF</span>
                             </div>
                         </div>
-                        <div class="grid-item">
+                        <div class="grid-item" data-grid-index="1">
                             <img src="./assets/images/2025/sf.jpg" alt="SF">
                             <div class="grid-overlay">
                                 <span class="overlay-text">SF</span>
                             </div>
                         </div>
-                        <div class="grid-item">
+                        <div class="grid-item" data-grid-index="2">
                             <img src="./assets/images/2025/sf.jpg" alt="SF">
                             <div class="grid-overlay">
                                 <span class="overlay-text">SF</span>
                             </div>
+                        </div>
+                    </div>
+                    <div class="timeline-container">
+                        <div class="mini-person" style="left: ${this.getTimelinePosition()}%">
+                            <span class="person-icon">🧑</span>
+                        </div>
+                        <div class="timeline-track">
+                            <div class="timeline-line"></div>
+                            <div class="timeline-dot" style="left: 16.67%"></div>
+                            <div class="timeline-dot" style="left: 50%"></div>
+                            <div class="timeline-dot" style="left: 83.33%"></div>
                         </div>
                     </div>
                     <div class="home-content">
@@ -92,6 +104,21 @@ class App {
                 </div>
             </section>
         `;
+    }
+
+    getTimelinePosition() {
+        // Calculate position percentage at the center of each grid item
+        // For 3 equal columns: centers are at 16.67%, 50%, 83.33%
+        const positions = [16.67, 50, 83.33];
+        return positions[this.state.timelinePosition] || positions[0];
+    }
+
+    moveTimeline(direction) {
+        if (direction === 'left' && this.state.timelinePosition > 0) {
+            this.setState({ timelinePosition: this.state.timelinePosition - 1 });
+        } else if (direction === 'right' && this.state.timelinePosition < 2) {
+            this.setState({ timelinePosition: this.state.timelinePosition + 1 });
+        }
     }
 
     renderAbout() {
@@ -297,15 +324,66 @@ class App {
                 });
             }
         });
+
+        // Keyboard controls for timeline (only when on home section)
+        if (this.state.activeSection === 'home') {
+            this.attachTimelineListeners();
+        }
+    }
+
+    attachTimelineListeners() {
+        // Remove existing listener if any
+        if (this.timelineKeyHandler) {
+            document.removeEventListener('keydown', this.timelineKeyHandler);
+        }
+
+        // Add keyboard event listener
+        this.timelineKeyHandler = (e) => {
+            if (this.state.activeSection !== 'home') return;
+            
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                this.moveTimeline('left');
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                this.moveTimeline('right');
+            }
+        };
+
+        document.addEventListener('keydown', this.timelineKeyHandler);
     }
 
     setState(newState) {
+        const wasOnHome = this.state.activeSection === 'home';
+        const timelineChanged = newState.timelinePosition !== undefined && 
+                                newState.timelinePosition !== this.state.timelinePosition;
+        const sectionChanged = newState.activeSection && 
+                               newState.activeSection !== this.state.activeSection;
+        
         this.state = { ...this.state, ...newState };
-        this.render();
-        this.attachEventListeners();
+        
+        // If only timeline position changed and we're on home, update just the position
+        if (wasOnHome && this.state.activeSection === 'home' && timelineChanged && 
+            !sectionChanged && Object.keys(newState).length === 1) {
+            this.updateTimelinePosition();
+        } else {
+            // Full re-render for other state changes
+            this.render();
+            this.attachEventListeners();
+        }
         
         // Scroll to top on section change
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (sectionChanged) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
+
+    updateTimelinePosition() {
+        const miniPerson = document.querySelector('.mini-person');
+        if (miniPerson) {
+            const position = this.getTimelinePosition();
+            miniPerson.style.left = `${position}%`;
+        }
     }
 }
 
