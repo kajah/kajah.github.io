@@ -64,26 +64,27 @@ class App {
     }
 
     renderHome() {
+        const activeGridIndex = this.state.timelinePosition;
         return `
             <section class="section home-section">
                 <div class="home-container">
                     <div class="image-grid">
-                        <div class="grid-item" data-grid-index="0">
+                        <div class="grid-item ${activeGridIndex === 0 ? 'active' : ''}" data-grid-index="0">
                             <img src="./assets/images/2025/sf.jpg" alt="SF">
                             <div class="grid-overlay">
                                 <span class="overlay-text">SF</span>
                             </div>
                         </div>
-                        <div class="grid-item" data-grid-index="1">
-                            <img src="./assets/images/2025/sf.jpg" alt="SF">
+                        <div class="grid-item ${activeGridIndex === 1 ? 'active' : ''}" data-grid-index="1">
+                            <img src="./assets/images/2025/nyc.jpg" alt="SF">
                             <div class="grid-overlay">
-                                <span class="overlay-text">SF</span>
+                                <span class="overlay-text">NYC</span>
                             </div>
                         </div>
-                        <div class="grid-item" data-grid-index="2">
-                            <img src="./assets/images/2025/sf.jpg" alt="SF">
+                        <div class="grid-item ${activeGridIndex === 2 ? 'active' : ''}" data-grid-index="2">
+                            <img src="./assets/images/2025/dc.jpg" alt="SF">
                             <div class="grid-overlay">
-                                <span class="overlay-text">SF</span>
+                                <span class="overlay-text">DC</span>
                             </div>
                         </div>
                     </div>
@@ -93,9 +94,15 @@ class App {
                         </div>
                         <div class="timeline-track">
                             <div class="timeline-line"></div>
-                            <div class="timeline-dot" style="left: 16.67%"></div>
-                            <div class="timeline-dot" style="left: 50%"></div>
-                            <div class="timeline-dot" style="left: 83.33%"></div>
+                            <div class="timeline-dot" style="left: 16.67%">
+                                <div class="press-enter-text ${activeGridIndex === 0 ? 'visible' : ''}">chapter 1<br>(press enter)</div>
+                            </div>
+                            <div class="timeline-dot" style="left: 50%">
+                                <div class="press-enter-text ${activeGridIndex === 1 ? 'visible' : ''}">chapter 2<br>(press enter)</div>
+                            </div>
+                            <div class="timeline-dot" style="left: 83.33%">
+                                <div class="press-enter-text ${activeGridIndex === 2 ? 'visible' : ''}">chapter 3<br>(press enter)</div>
+                            </div>
                         </div>
                     </div>
                     <div class="home-content">
@@ -384,6 +391,24 @@ class App {
             const position = this.getTimelinePosition();
             miniPerson.style.left = `${position}%`;
         }
+        
+        // Update active grid item overlay
+        document.querySelectorAll('.grid-item').forEach((item, index) => {
+            if (index === this.state.timelinePosition) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+        
+        // Update "press enter" text visibility
+        document.querySelectorAll('.press-enter-text').forEach((text, index) => {
+            if (index === this.state.timelinePosition) {
+                text.classList.add('visible');
+            } else {
+                text.classList.remove('visible');
+            }
+        });
     }
 }
 
