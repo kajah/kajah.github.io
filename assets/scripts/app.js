@@ -17,24 +17,8 @@ class App {
     render() {
         const app = document.getElementById('app');
         app.innerHTML = `
-            ${this.renderHeader()}
             ${this.renderMain()}
             ${this.renderModals()}
-        `;
-    }
-
-    renderHeader() {
-        return `
-            <header class="header">
-                <div class="header-content">
-                    <div class="logo">
-                        <h1>Katharine Jiang</h1>
-                    </div>
-                    <nav class="nav">
-                        <button class="nav-link ${this.state.activeSection === 'contact' ? 'active' : ''}" data-section="contact">Contact</button>
-                    </nav>
-                </div>
-            </header>
         `;
     }
 
@@ -47,11 +31,9 @@ class App {
     }
 
     renderSection() {
+        // Keep home as the main page; contact is shown as a modal instead
         switch(this.state.activeSection) {
             case 'home':
-                return this.renderHome();
-            case 'contact':
-                return this.renderContact();
             default:
                 return this.renderHome();
         }
@@ -123,35 +105,6 @@ class App {
     }
 
 
-    renderContact() {
-        return `
-            <section class="section contact-section">
-                <div class="container">
-                    <h2 class="section-title">Get in Touch</h2>
-                    <div class="contact-content">
-                        <p class="contact-intro">
-                            I'm always open to chatting about startups, investing, music, games, or anything else!
-                        </p>
-                        <div class="contact-links">
-                            <a href="https://twitter.com/katharine_jiang" target="_blank" class="contact-link">
-                                <span class="contact-icon">🐦</span>
-                                <span>Twitter</span>
-                            </a>
-                            <a href="https://www.linkedin.com/in/katharine-jiang/" target="_blank" class="contact-link">
-                                <span class="contact-icon">💼</span>
-                                <span>LinkedIn</span>
-                            </a>
-                            <a href="mailto:katharine@wizform.com" class="contact-link">
-                                <span class="contact-icon">✉️</span>
-                                <span>Email</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        `;
-    }
-
     renderModals() {
         const { openModal } = this.state;
         if (!openModal) return '';
@@ -162,6 +115,7 @@ class App {
                     ${openModal === 'chapter1' ? this.renderChapter1Modal() : ''}
                     ${openModal === 'chapter2' ? this.renderChapter2Modal() : ''}
                     ${openModal === 'chapter3' ? this.renderChapter3Modal() : ''}
+                    ${openModal === 'contact' ? this.renderContactModal() : ''}
                     <button class="modal-close">×</button>
                 </div>
             </div>
@@ -201,25 +155,34 @@ class App {
         `;
     }
 
+    renderContactModal() {
+        return `
+            <div class="chapter-modal">
+                <h2 class="chapter-title">Get in Touch</h2>
+                <div class="chapter-content">
+                    <p class="contact-intro">
+                        I'm always open to chatting about startups, investing, music, games, or anything else!
+                    </p>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/katharine_jiang" target="_blank" class="contact-link">
+                            <span class="contact-icon">🐦</span>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/katharine-jiang/" target="_blank" class="contact-link">
+                            <span class="contact-icon">💼</span>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="mailto:katharine@wizform.com" class="contact-link">
+                            <span class="contact-icon">✉️</span>
+                            <span>Email</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
     attachEventListeners() {
-        // Navigation
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                const section = e.target.dataset.section;
-                this.setState({ activeSection: section });
-            });
-        });
-
-        // Section buttons
-        document.querySelectorAll('[data-section]').forEach(btn => {
-            if (btn.classList.contains('btn')) {
-                btn.addEventListener('click', (e) => {
-                    const section = e.target.dataset.section;
-                    this.setState({ activeSection: section });
-                });
-            }
-        });
-
         // Modal close button and overlay
         const modalOverlay = document.querySelector('.modal-overlay');
         const modalCloseBtn = document.querySelector('.modal-close');
