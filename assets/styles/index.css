@@ -115,7 +115,7 @@ body {
 
 /* Home Section */
 .home-section {
-    padding: 0;
+    padding: 0 0 4rem 0;
 }
 
 .home-container {
