@@ -66,7 +66,7 @@ class App {
                     </div>
                     <div class="timeline-container">
                         <div class="mini-person" style="left: ${this.getTimelinePosition()}%">
-                            <span class="person-icon">🧑</span>
+                            <img src="./assets/images/avatar.png" alt="Avatar" class="person-icon" />
                         </div>
                         <div class="timeline-track">
                             <div class="timeline-line"></div>
