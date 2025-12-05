@@ -542,7 +542,7 @@ body {
 
 /* Modal */
 .modal-overlay {
-		position: fixed;
+	position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -565,7 +565,7 @@ body {
 .modal-content-wrapper {
     position: relative;
     background-color: var(--bg-color);
-    border-radius: 1rem;
+    /* border-radius: 1rem; */
     max-width: 800px;
     width: 90%;
     max-height: 90vh;
