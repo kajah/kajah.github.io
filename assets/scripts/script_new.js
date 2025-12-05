@@ -1,105 +1,165 @@
-var begContainer    = document.getElementsByClassName("beg-container"),
-    startContainer  = document.getElementsByClassName("start-container"),
-    onBegPage       = true,
-    start           = document.getElementById("start"),
-    quit            = document.getElementById("quit"),
-    cont            = document.getElementById("continue"),
-    save1           = document.getElementById("save1"),
-    save2           = document.getElementById("save2"),
-    tutorial        = document.getElementById("tutorial"),
-    about           = document.getElementById("about"),
-    back            = document.getElementById("back"),
-    menuDescription = document.getElementById("menu-description");
-    aboutModal      = document.getElementById("about-modal");
-    tutorialModal   = document.getElementById("tutorial-modal");
-    nextdoorModal   = document.getElementById("nextdoor-modal");
-    blendModal      = document.getElementById("blend-modal");
-    contModal       = document.getElementById("cont-modal");
-    quitModal       = document.getElementById("quit-modal");
-    modalClose      = document.getElementsByClassName("modal-close");
-    quitModalClose  = document.getElementById("quit-modal-close");
-    modals          = document.getElementsByClassName("modal");
+/**
+ * Modernized JavaScript for Katharine Jiang's portfolio site
+ * Uses ES6+ syntax, no jQuery dependency
+ */
 
-var urlParams = new URLSearchParams(window.location.search);
-if (urlParams) {
-    var fromProjectPage = urlParams.get('fromProjectPage');
-    if (fromProjectPage) {
-        onBegPage = false;
-    }
+class PortfolioApp {
+	constructor() {
+		this.onBegPage = true;
+		this.init();
+	}
+
+	init() {
+		// Check URL params
+		const urlParams = new URLSearchParams(window.location.search);
+		if (urlParams.get('fromProjectPage')) {
+			this.onBegPage = false;
+		}
+
+		// Initialize DOM references
+		this.elements = {
+			begContainer: document.querySelector('.beg-container'),
+			startContainer: document.querySelector('.start-container'),
+			start: document.getElementById('start'),
+			quit: document.getElementById('quit'),
+			cont: document.getElementById('continue'),
+			save1: document.getElementById('save1'),
+			save2: document.getElementById('save2'),
+			tutorial: document.getElementById('tutorial'),
+			about: document.getElementById('about'),
+			back: document.getElementById('back'),
+			modals: document.querySelectorAll('.modal'),
+			modalClose: document.querySelectorAll('.modal-close'),
+			quitModalClose: document.getElementById('quit-modal-close')
+		};
+
+		// Validate elements exist
+		if (!this.validateElements()) {
+			console.error('Required DOM elements not found');
+			return;
+		}
+
+		// Set initial state
+		this.updatePageVisibility();
+
+		// Attach event listeners
+		this.attachEventListeners();
+
+		// Close all modals initially
+		this.closeAllModals();
+	}
+
+	validateElements() {
+		return Object.values(this.elements).every(el => {
+			if (Array.isArray(el)) return el.length > 0;
+			return el !== null;
+		});
+	}
+
+	attachEventListeners() {
+		// Menu navigation
+		this.elements.start?.addEventListener('click', () => this.handleStart());
+		this.elements.back?.addEventListener('click', () => this.handleBack());
+		this.elements.quit?.addEventListener('click', () => this.handleQuit());
+
+		// Modal triggers
+		this.elements.cont?.addEventListener('click', () => this.openModal('cont-modal'));
+		this.elements.save1?.addEventListener('click', () => this.openModal('blend-modal'));
+		this.elements.save2?.addEventListener('click', () => this.openModal('nextdoor-modal'));
+		this.elements.tutorial?.addEventListener('click', () => this.openModal('tutorial-modal'));
+		this.elements.about?.addEventListener('click', () => this.openModal('about-modal'));
+
+		// Modal close buttons
+		this.elements.modalClose.forEach(button => {
+			button.addEventListener('click', () => {
+				this.closeAllModals();
+				// Update URL without page reload
+				const newUrl = window.location.pathname + '?fromProjectPage=1';
+				window.history.pushState({}, '', newUrl);
+			});
+		});
+
+		this.elements.quitModalClose?.addEventListener('click', () => this.closeAllModals());
+
+		// Keyboard navigation
+		document.addEventListener('keydown', (e) => this.handleKeyboard(e));
+	}
+
+	handleKeyboard(event) {
+		// Close modals with Escape key
+		if (event.key === 'Escape') {
+			this.closeAllModals();
+		}
+	}
+
+	handleStart() {
+		this.onBegPage = false;
+		this.updatePageVisibility();
+		this.closeAllModals();
+	}
+
+	handleBack() {
+		this.onBegPage = true;
+		this.updatePageVisibility();
+		this.closeAllModals();
+		// Update URL without page reload
+		window.history.pushState({}, '', window.location.pathname);
+	}
+
+	handleQuit() {
+		// Don't change menu state, just show the quit modal
+		this.closeAllModals();
+		const modal = document.getElementById('quit-modal');
+		if (modal) {
+			modal.classList.remove('closed');
+			modal.setAttribute('aria-hidden', 'false');
+			const firstFocusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+			firstFocusable?.focus();
+		}
+	}
+
+	openModal(modalId) {
+		// Switch to start menu for modals (except quit which is handled separately)
+		this.onBegPage = false;
+		this.updatePageVisibility();
+		this.closeAllModals();
+
+		const modal = document.getElementById(modalId);
+		if (modal) {
+			modal.classList.remove('closed');
+			modal.setAttribute('aria-hidden', 'false');
+			
+			// Focus management for accessibility
+			const firstFocusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+			firstFocusable?.focus();
+		}
+	}
+
+	closeAllModals() {
+		this.elements.modals.forEach(modal => {
+			modal.classList.add('closed');
+			modal.setAttribute('aria-hidden', 'true');
+		});
+	}
+
+	updatePageVisibility() {
+		if (this.elements.begContainer && this.elements.startContainer) {
+			if (this.onBegPage) {
+				this.elements.begContainer.style.visibility = 'visible';
+				this.elements.startContainer.style.visibility = 'hidden';
+			} else {
+				this.elements.begContainer.style.visibility = 'hidden';
+				this.elements.startContainer.style.visibility = 'visible';
+			}
+		}
+	}
 }
 
-start.addEventListener("click", function() {
-    begContainer[0].style.visibility = "hidden";
-    startContainer[0].style.visibility = "visible";
-    onBegPage = false;
-    closeAllModals();
-});
-
-back.addEventListener("click", function() {
-    begContainer[0].style.visibility = "visible";
-    startContainer[0].style.visibility = "hidden";
-    onBegPage = true;
-    closeAllModals();
-    // window.history.pushState({}, document.title, "/" + "index.html");
-});
-
-cont.addEventListener("click", function() {
-    onBegPage = false;
-    closeAllModals();
-    contModal.classList.toggle("closed");
-});
-
-quit.addEventListener("click", function() {
-    onBegPage = true;
-    closeAllModals();
-    quitModal.classList.toggle("closed");
-});
-
-save1.addEventListener("click", function() {
-    onBegPage = false;
-    closeAllModals();
-    blendModal.classList.toggle("closed");
-});
-
-save2.addEventListener("click", function() {
-    onBegPage = false;
-    closeAllModals();
-    nextdoorModal.classList.toggle("closed");
-})
-
-tutorial.addEventListener("click", function() {
-    onBegPage = false;
-    closeAllModals();
-    tutorialModal.classList.toggle("closed");
-});
-
-about.addEventListener("click", function() {
-    onBegPage = false;
-    closeAllModals();
-    aboutModal.classList.toggle("closed");
-});
-
-if (onBegPage) {
-    begContainer[0].style.visibility = "visible";
-    startContainer[0].style.visibility = "hidden";
+// Initialize app when DOM is ready
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', () => {
+		new PortfolioApp();
+	});
 } else {
-    begContainer[0].style.visibility = "hidden";
-    startContainer[0].style.visibility = "visible";
+	new PortfolioApp();
 }
-
-function closeAllModals() {
-    for (const modal of modals) {
-        modal.classList.add("closed");
-    }
-}
-
-closeAllModals();
-for (const button of modalClose) {
-    button.addEventListener("click", function() {
-        closeAllModals();
-        window.location.href = "index.html?fromProjectPage=1";
-    });
-}
-
-quitModalClose.addEventListener("click", closeAllModals);
-
