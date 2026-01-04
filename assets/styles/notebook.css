@@ -1,0 +1,184 @@
+/* Notebook UI Styles */
+
+.notebook-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Optional: dim background */
+    /* background-color: rgba(0, 0, 0, 0.3); */
+    z-index: 500;
+}
+
+.notebook {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    perspective: 1500px;
+}
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background-color: var(--color-bg);
+    /* Use existing variable or antiquewhite */
+    border: 1px solid #c0c0c0;
+    border-radius: 5px 15px 15px 5px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05), 1px 1px 5px rgba(0, 0, 0, 0.1);
+
+    /* Notebook lines */
+    background-image: linear-gradient(#e5e5e5 1px, transparent 1px);
+    background-size: 100% 30px;
+    padding-top: 50px;
+    /* Top margin */
+}
+
+/* Red margin line */
+.page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 40px;
+    width: 1px;
+    background-color: #ffcccc;
+    z-index: 1;
+}
+
+.page-front,
+.page-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    padding: 60px 20px 20px 60px;
+    /* Adjust for margin line */
+    display: flex;
+    flex-direction: column;
+}
+
+.page-back {
+    transform: rotateY(180deg);
+    background-color: #f7f3e8;
+    /* Slightly dimmer for back */
+    border-radius: 15px 5px 5px 15px;
+    background-image: linear-gradient(#e5e5e5 1px, transparent 1px);
+    background-size: 100% 30px;
+}
+
+/* Flipped State */
+.page.flipped {
+    transform: rotateY(-180deg);
+}
+
+/* Content Styles */
+.page h2 {
+    font-family: var(--font-primary);
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--color-primary);
+}
+
+.notebook-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.notebook-menu li {
+    margin-bottom: 20px;
+}
+
+.notebook-menu button {
+    background: none;
+    border: none;
+    font-family: var(--font-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    transition: color 0.2s, transform 0.2s;
+    position: relative;
+    padding-left: 10px;
+}
+
+.notebook-menu button:hover,
+.notebook-menu button:focus {
+    color: var(--color-primary);
+    transform: translateX(5px);
+    outline: none;
+    font-weight: bold;
+}
+
+.notebook-menu button:hover::before {
+    content: '>';
+    position: absolute;
+    left: -15px;
+    color: var(--color-accent);
+}
+
+.page-number {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-family: var(--font-secondary);
+    color: #999;
+}
+
+/* Controls */
+.notebook-controls {
+    position: absolute;
+    bottom: -60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    z-index: 100;
+}
+
+.nav-arrow {
+    background: var(--color-bg);
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.nav-arrow:hover {
+    background: var(--color-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 2px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.nav-arrow:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+@media (max-width: 600px) {
+    .notebook {
+        width: 90vw;
+        height: 60vh;
+    }
+}
