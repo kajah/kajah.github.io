@@ -26,9 +26,6 @@ class PortfolioApp {
 			notebookPages: document.querySelectorAll('.page'),
 			prevPageBtn: document.getElementById('prev-page'),
 			nextPageBtn: document.getElementById('next-page'),
-			cont: document.getElementById('continue'),
-			save1: document.getElementById('save1'),
-			save2: document.getElementById('save2'),
 			tutorial: document.getElementById('tutorial'),
 			about: document.getElementById('about'),
 			back: document.getElementById('back'),
@@ -76,9 +73,6 @@ class PortfolioApp {
 		this.elements.nextPageBtn?.addEventListener('click', () => this.flipPage(1));
 
 		// Modal triggers
-		this.elements.cont?.addEventListener('click', () => this.openModal('cont-modal'));
-		this.elements.save1?.addEventListener('click', () => this.openModal('blend-modal'));
-		this.elements.save2?.addEventListener('click', () => this.openModal('nextdoor-modal'));
 		this.elements.tutorial?.addEventListener('click', () => this.openModal('tutorial-modal'));
 		this.elements.about?.addEventListener('click', () => this.openModal('about-modal'));
 

@@ -16,8 +16,8 @@
 
 .notebook {
     position: relative;
-    width: 400px;
-    height: 500px;
+    width: 600px;
+    height: 750px;
     perspective: 1500px;
 }
 
