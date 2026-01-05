@@ -1,0 +1,47 @@
+/* Flower Popup Styles */
+
+.flower-popup {
+    position: absolute;
+    width: 150px;
+    /* Larger size */
+    height: 150px;
+    /* Larger size */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    image-rendering: pixelated;
+    pointer-events: none;
+    z-index: 100;
+    /* Behind notebook (500) but above background */
+    opacity: 0;
+    transform: scale(0) rotate(-10deg);
+}
+
+.flower-popup.flower-rose {
+    background-image: url('../images/flower-rose.png');
+}
+
+.flower-popup.flower-daisy {
+    background-image: url('../images/flower-daisy.png');
+}
+
+.flower-popup.flower-sunflower {
+    background-image: url('../images/flower-sunflower.png');
+}
+
+/* Animation Classes */
+.flower-pop {
+    animation: flowerPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes flowerPop {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(-45deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}

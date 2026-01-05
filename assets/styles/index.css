@@ -12,26 +12,26 @@
 	--color-text: #000000;
 	--color-bg: antiquewhite;
 	--color-bg-menu: rgba(0, 0, 0, 0);
-	
+
 	/* Typography */
 	--font-primary: 'Press Start 2P', cursive;
 	--font-secondary: 'Ubuntu Mono', monospace;
 	--font-size-base: 16px;
 	--line-height-base: 1.5;
 	--line-height-tight: 1.2;
-	
+
 	/* Spacing */
 	--spacing-xs: 0.5rem;
 	--spacing-sm: 1rem;
 	--spacing-md: 1.5rem;
 	--spacing-lg: 2rem;
 	--spacing-xl: 3rem;
-	
+
 	/* Layout */
 	--container-max-width: 700px;
 	--border-radius: 5px;
 	--border-width: 3px;
-	
+
 	/* Transitions */
 	--transition-base: 0.2s ease;
 	--transition-slow: 0.3s ease;
@@ -63,18 +63,19 @@ body {
 
 /* Background Images */
 html {
-	background: url(../images/pixil-mobile-2.png) no-repeat center center fixed;
-	background-size: cover;
+	/* background: url(../images/pixil-mobile-2.png) no-repeat center center fixed; */
+	/* background-size: cover; */
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
 	html {
 		background-image: url(../images/pixil-gif-drawing-4.gif);
 	}
-}
+} */
 
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
+
 	*,
 	*::before,
 	*::after {
@@ -99,6 +100,7 @@ html {
 }
 
 @media (min-width: 768px) {
+
 	.beg-container,
 	.start-container {
 		margin-inline-start: 100px;
@@ -248,13 +250,13 @@ a:focus-visible {
 		width: 95vw;
 		max-height: 85vh;
 	}
-	
+
 	.modal-content {
 		padding: var(--spacing-md);
 		font-size: 0.9375rem;
 		line-height: 1.6;
 	}
-	
+
 	.beg-container,
 	.start-container {
 		margin-inline-start: var(--spacing-md);
@@ -263,11 +265,12 @@ a:focus-visible {
 
 /* Print Styles */
 @media print {
+
 	.beg-container,
 	.start-container {
 		display: none;
 	}
-	
+
 	.modal {
 		position: static;
 		transform: none;
@@ -275,7 +278,7 @@ a:focus-visible {
 		max-height: none;
 		border: 1px solid var(--color-text);
 	}
-	
+
 	.modal.closed {
 		display: none;
 	}

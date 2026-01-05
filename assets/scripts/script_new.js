@@ -113,13 +113,65 @@ class PortfolioApp {
 	}
 
 	handleStart() {
-		this.onBegPage = false;
-		this.updatePageVisibility();
-		this.closeAllModals();
+		// New Sequence:
+		// 1. Hide begContainer
+		// 2. Remove background image
+		// 3. Spawn flowers
+		// 4. Wait, then show notebook
 
-		// Reset notebook to first page
-		this.currentPageIndex = 0;
-		this.updateNotebookPages();
+		this.elements.begContainer.style.visibility = 'hidden';
+		this.onBegPage = false;
+
+		// Ensure background image is gone if it wasn't already handled by CSS
+		document.documentElement.style.backgroundImage = 'none';
+		document.documentElement.style.backgroundColor = '#f7f3e8';
+
+		this.spawnFlowers();
+
+		// Delay showing notebook to let flowers populate
+		setTimeout(() => {
+			this.updatePageVisibility(); // Shows notebook container
+			this.closeAllModals();
+
+			// Reset notebook to first page
+			this.currentPageIndex = 0;
+			this.updateNotebookPages();
+		}, 1000);
+	}
+
+	spawnFlowers() {
+		const flowerTypes = ['flower-rose', 'flower-daisy', 'flower-sunflower'];
+		const count = 20; // Fewer flowers since they are larger? Or same count. Let's do 20-30.
+
+		for (let i = 0; i < count; i++) {
+			setTimeout(() => {
+				const flower = document.createElement('div');
+				flower.classList.add('flower-popup');
+
+				// Random type
+				const type = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
+				flower.classList.add(type);
+
+				// Random position
+				const x = Math.random() * (window.innerWidth - 150); // Adjust for width
+				const y = Math.random() * (window.innerHeight - 150); // Adjust for height
+
+				flower.style.left = `${x}px`;
+				flower.style.top = `${y}px`;
+
+				// Random rotation
+				const rotation = Math.floor(Math.random() * 360);
+				flower.style.transform = `scale(0) rotate(${rotation}deg)`;
+
+				document.body.appendChild(flower);
+
+				// Trigger animation
+				requestAnimationFrame(() => {
+					flower.classList.add('flower-pop');
+				});
+
+			}, i * 50);
+		}
 	}
 
 	handleBack() {
@@ -171,6 +223,8 @@ class PortfolioApp {
 			if (this.onBegPage) {
 				this.elements.begContainer.style.visibility = 'visible';
 				if (this.elements.notebookContainer) this.elements.notebookContainer.style.display = 'none';
+				// Clean up flowers if going back
+				document.querySelectorAll('.flower-popup').forEach(el => el.remove());
 			} else {
 				this.elements.begContainer.style.visibility = 'hidden';
 				// only show notebook if we are NOT in a modal? 
