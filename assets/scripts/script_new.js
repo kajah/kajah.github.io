@@ -35,6 +35,14 @@ class PortfolioApp {
 		};
 
 		this.currentPageIndex = 0;
+		this.currentBackgroundPage = -1; // Track which page's background is showing
+
+		// Background Config
+		this.backgroundConfig = {
+			0: ['flower-rose', 'flower-daisy', 'flower-sunflower'], // Cover
+			1: ['sf-bridge', 'sf-ladies', 'sf-park'], // Chapter 1
+			// Add more for other pages if needed
+		};
 
 		// Validate elements exist
 		if (!this.validateElements()) {
@@ -116,7 +124,7 @@ class PortfolioApp {
 		// New Sequence:
 		// 1. Hide begContainer
 		// 2. Remove background image
-		// 3. Spawn flowers
+		// 3. Spawn flowers (via updateBackgroundElements)
 		// 4. Wait, then show notebook
 
 		this.elements.begContainer.style.visibility = 'hidden';
@@ -126,7 +134,8 @@ class PortfolioApp {
 		document.documentElement.style.backgroundImage = 'none';
 		document.documentElement.style.backgroundColor = '#f7f3e8';
 
-		this.spawnFlowers();
+		// Initial Spawn (Cover - Page 0)
+		this.updateBackgroundElements(0);
 
 		// Delay showing notebook to let flowers populate
 		setTimeout(() => {
@@ -139,35 +148,49 @@ class PortfolioApp {
 		}, 1000);
 	}
 
-	spawnFlowers() {
-		const flowerTypes = ['flower-rose', 'flower-daisy', 'flower-sunflower'];
-		const count = 20; // Fewer flowers since they are larger? Or same count. Let's do 20-30.
+	updateBackgroundElements(pageIndex) {
+		// Only update if the background needs to change
+		if (this.currentBackgroundPage === pageIndex) return;
+
+		this.currentBackgroundPage = pageIndex;
+
+		// Clear existing elements
+		document.querySelectorAll('.flower-popup').forEach(el => el.remove());
+
+		const types = this.backgroundConfig[pageIndex];
+		if (types) {
+			this.spawnBackgroundElements(types);
+		}
+	}
+
+	spawnBackgroundElements(types) {
+		const count = 20;
 
 		for (let i = 0; i < count; i++) {
 			setTimeout(() => {
-				const flower = document.createElement('div');
-				flower.classList.add('flower-popup');
+				const el = document.createElement('div');
+				el.classList.add('flower-popup');
 
 				// Random type
-				const type = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
-				flower.classList.add(type);
+				const type = types[Math.floor(Math.random() * types.length)];
+				el.classList.add(type);
 
 				// Random position
-				const x = Math.random() * (window.innerWidth - 150); // Adjust for width
-				const y = Math.random() * (window.innerHeight - 150); // Adjust for height
+				const x = Math.random() * (window.innerWidth - 150);
+				const y = Math.random() * (window.innerHeight - 150);
 
-				flower.style.left = `${x}px`;
-				flower.style.top = `${y}px`;
+				el.style.left = `${x}px`;
+				el.style.top = `${y}px`;
 
 				// Random rotation
 				const rotation = Math.floor(Math.random() * 360);
-				flower.style.transform = `scale(0) rotate(${rotation}deg)`;
+				el.style.transform = `scale(0) rotate(${rotation}deg)`;
 
-				document.body.appendChild(flower);
+				document.body.appendChild(el);
 
 				// Trigger animation
 				requestAnimationFrame(() => {
-					flower.classList.add('flower-pop');
+					el.classList.add('flower-pop');
 				});
 
 			}, i * 50);
@@ -268,6 +291,10 @@ class PortfolioApp {
 				page.style.zIndex = this.elements.notebookPages.length - index;
 			}
 		});
+
+		// Update background elements based on current page
+		this.updateBackgroundElements(this.currentPageIndex);
+
 		this.updateNotebookNavigation();
 	}
 

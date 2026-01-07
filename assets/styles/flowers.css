@@ -29,6 +29,19 @@
     background-image: url('../images/flower-sunflower.png');
 }
 
+/* SF Background Elements */
+.flower-popup.sf-bridge {
+    background-image: url('../images/sf-bridge.png');
+}
+
+.flower-popup.sf-ladies {
+    background-image: url('../images/sf-ladies.png');
+}
+
+.flower-popup.sf-park {
+    background-image: url('../images/sf-park.png');
+}
+
 /* Animation Classes */
 .flower-pop {
     animation: flowerPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
