@@ -33,203 +33,200 @@
 <body>
 	<main>
 		<nav class="menu-nav" aria-label="Main navigation">
-			<div class="beg-container">
-				<button type="button" id="start" aria-label="Start">Start</button>
-				<button type="button" id="quit" aria-label="Quit">Quit</button>
-			</div>
-			<div id="notebook-container" class="notebook-overlay" style="display: none;">
-				<div class="notebook">
-					<!-- Pages -->
-					<!-- Page 0: Cover -->
-					<div class="page cover" id="page-0" style="z-index: 6;">
-						<div class="page-front">
-							<div class="cover-content">
-								<h1>CHAPTER</h1>
-								<h1>SELECT</h1>
-								<p>a personal timeline</p>
-								<p>Katharine Jiang</p>
+			<nav class="menu-nav" aria-label="Main navigation">
+				<div id="notebook-container" class="notebook-overlay">
+					<div class="notebook">
+						<!-- Pages -->
+						<!-- Page 0: Cover -->
+						<div class="page cover" id="page-0" style="z-index: 6;">
+							<div class="page-front">
+								<div class="cover-content">
+									<h1>CHAPTER</h1>
+									<h1>SELECT</h1>
+									<p>a personal timeline</p>
+									<p>Katharine Jiang</p>
+								</div>
 							</div>
+							<div class="page-back"></div>
 						</div>
-						<div class="page-back"></div>
-					</div>
 
-					<!-- Page 1: Chapter 1 -->
-					<div class="page" id="page-1" style="z-index: 5;">
-						<div class="page-front">
-							<h2>Chapter I</h2>
-							<div class="chapter-content">
-								<p>sf was a time of ...</p>
+						<!-- Page 1: Chapter 1 -->
+						<div class="page" id="page-1" style="z-index: 5;">
+							<div class="page-front">
+								<h2>Chapter I</h2>
+								<div class="chapter-content">
+									<p>sf was a time of ...</p>
+								</div>
+								<div class="page-number">1</div>
 							</div>
-							<div class="page-number">1</div>
+							<div class="page-back"></div>
 						</div>
-						<div class="page-back"></div>
-					</div>
 
-					<!-- Page 2: Chapter 2 -->
-					<div class="page" id="page-2" style="z-index: 4;">
-						<div class="page-front">
-							<h2>Chapter II</h2>
-							<div class="chapter-content">
-								<p>Middle Game</p>
+						<!-- Page 2: Chapter 2 -->
+						<div class="page" id="page-2" style="z-index: 4;">
+							<div class="page-front">
+								<h2>Chapter II</h2>
+								<div class="chapter-content">
+									<p>Middle Game</p>
+								</div>
+								<div class="page-number">3</div>
 							</div>
-							<div class="page-number">3</div>
+							<div class="page-back"></div>
 						</div>
-						<div class="page-back"></div>
-					</div>
 
-					<!-- Page 3: Chapter 3 -->
-					<div class="page" id="page-3" style="z-index: 3;">
-						<div class="page-front">
-							<h2>Chapter III</h2>
-							<div class="chapter-content">
-								<p>End Game</p>
+						<!-- Page 3: Chapter 3 -->
+						<div class="page" id="page-3" style="z-index: 3;">
+							<div class="page-front">
+								<h2>Chapter III</h2>
+								<div class="chapter-content">
+									<p>End Game</p>
+								</div>
+								<div class="page-number">5</div>
 							</div>
-							<div class="page-number">5</div>
+							<div class="page-back"></div>
 						</div>
-						<div class="page-back"></div>
-					</div>
 
-					<!-- Page 4: Extras -->
-					<div class="page" id="page-4" style="z-index: 2;">
-						<div class="page-front">
-							<h2>Extras</h2>
-							<ul class="notebook-menu">
-								<li><button type="button" id="tutorial">Tutorial</button></li>
-								<li><button type="button" id="about">About</button></li>
-								<li><button type="button" id="back">Back to Title</button></li>
-							</ul>
-							<div class="page-number">7</div>
+						<!-- Page 4: Extras -->
+						<div class="page" id="page-4" style="z-index: 2;">
+							<div class="page-front">
+								<h2>Extras</h2>
+								<ul class="notebook-menu">
+									<li><button type="button" id="tutorial">Tutorial</button></li>
+									<li><button type="button" id="about">About</button></li>
+								</ul>
+								<div class="page-number">7</div>
+							</div>
+							<div class="page-back"></div>
 						</div>
-						<div class="page-back"></div>
-					</div>
 
-					<div class="notebook-controls">
-						<button id="prev-page" class="nav-arrow" aria-label="Previous Page">←</button>
-						<button id="next-page" class="nav-arrow" aria-label="Next Page">→</button>
+						<div class="notebook-controls">
+							<button id="prev-page" class="nav-arrow" aria-label="Previous Page">←</button>
+							<button id="next-page" class="nav-arrow" aria-label="Next Page">→</button>
+						</div>
 					</div>
 				</div>
+			</nav>
+
+			<!-- Modals -->
+			<div class="modal" id="about-modal" role="dialog" aria-labelledby="about-modal-title" aria-modal="true"
+				aria-hidden="true">
+				<button type="button" class="modal-close" aria-label="Close about modal">×</button>
+				<div class="modal-content">
+					<p>Hi! My name is <strong>Katharine Jiang</strong>. I'd probably describe myself as a jack of all
+						trades.</p>
+					<p>You can reach me on <a href="https://twitter.com/katharine_jiang" target="_blank"
+							rel="noopener noreferrer">Twitter</a> or <a
+							href="https://www.linkedin.com/in/katharine-jiang/" target="_blank"
+							rel="noopener noreferrer">LinkedIn</a> and talk to me about any of the
+						following!</p>
+					<ul>
+						<li>My <a href="https://www.wizform.com" target="_blank" rel="noopener noreferrer">company</a>
+						</li>
+						<li>Startup <a href="https://www.polymathcp.com/" target="_blank"
+								rel="noopener noreferrer">investing</a></li>
+						<li><a href="https://wearemovingforward.github.io/" target="_blank"
+								rel="noopener noreferrer">Inclusive & equitable venture capital fundraising</a></li>
+						<li>My podcast <a href="https://www.shoesoffpls.com/" target="_blank"
+								rel="noopener noreferrer">Shoes Off Pls</a>, elevating Asian American stories</li>
+						<li>Music (piano, guitar, music production, composing, Glass Animals, Yuja Wang, Foals, …)</li>
+						<li>Indie Video Games (Supergiant Games, Zero Escape: Nonary Games, Ace Attorney, Celeste,
+							Undertale, A Walk in the Woods, Oxenfree, Life is Strange, …)</li>
+						<li>Good books</li>
+						<li>A trusty pair (or 2 or 5) of black boots</li>
+					</ul>
+				</div>
 			</div>
-		</nav>
 
-		<!-- Modals -->
-		<div class="modal" id="about-modal" role="dialog" aria-labelledby="about-modal-title" aria-modal="true"
-			aria-hidden="true">
-			<button type="button" class="modal-close" aria-label="Close about modal">×</button>
-			<div class="modal-content">
-				<p>Hi! My name is <strong>Katharine Jiang</strong>. I'd probably describe myself as a jack of all
-					trades.</p>
-				<p>You can reach me on <a href="https://twitter.com/katharine_jiang" target="_blank"
-						rel="noopener noreferrer">Twitter</a> or <a href="https://www.linkedin.com/in/katharine-jiang/"
-						target="_blank" rel="noopener noreferrer">LinkedIn</a> and talk to me about any of the
-					following!</p>
-				<ul>
-					<li>My <a href="https://www.wizform.com" target="_blank" rel="noopener noreferrer">company</a></li>
-					<li>Startup <a href="https://www.polymathcp.com/" target="_blank"
-							rel="noopener noreferrer">investing</a></li>
-					<li><a href="https://wearemovingforward.github.io/" target="_blank"
-							rel="noopener noreferrer">Inclusive & equitable venture capital fundraising</a></li>
-					<li>My podcast <a href="https://www.shoesoffpls.com/" target="_blank"
-							rel="noopener noreferrer">Shoes Off Pls</a>, elevating Asian American stories</li>
-					<li>Music (piano, guitar, music production, composing, Glass Animals, Yuja Wang, Foals, …)</li>
-					<li>Indie Video Games (Supergiant Games, Zero Escape: Nonary Games, Ace Attorney, Celeste,
-						Undertale, A Walk in the Woods, Oxenfree, Life is Strange, …)</li>
-					<li>Good books</li>
-					<li>A trusty pair (or 2 or 5) of black boots</li>
-				</ul>
+			<div class="modal" id="tutorial-modal" role="dialog" aria-labelledby="tutorial-modal-title"
+				aria-modal="true" aria-hidden="true">
+				<button type="button" class="modal-close" aria-label="Close tutorial modal">×</button>
+				<div class="modal-content">
+					<h2 id="tutorial-modal-title">University of California, Berkeley</h2>
+					<p>Class of 2018 (December)</p>
+					<p>BA in Computer Science</p>
+					<p>I sharpened my teeth at Cal, which led me on unforgettable adventures. <strong>Go
+							Bears!!</strong>
+					</p>
+
+
+				</div>
 			</div>
-		</div>
 
-		<div class="modal" id="tutorial-modal" role="dialog" aria-labelledby="tutorial-modal-title" aria-modal="true"
-			aria-hidden="true">
-			<button type="button" class="modal-close" aria-label="Close tutorial modal">×</button>
-			<div class="modal-content">
-				<h2 id="tutorial-modal-title">University of California, Berkeley</h2>
-				<p>Class of 2018 (December)</p>
-				<p>BA in Computer Science</p>
-				<p>I sharpened my teeth at Cal, which led me on unforgettable adventures. <strong>Go Bears!!</strong>
-				</p>
-
-
+			<div class="modal" id="nextdoor-modal" role="dialog" aria-labelledby="nextdoor-modal-title"
+				aria-modal="true" aria-hidden="true">
+				<button type="button" class="modal-close" aria-label="Close Nextdoor modal">×</button>
+				<div class="modal-content">
+					<h2 id="nextdoor-modal-title">Nextdoor</h2>
+					<p>Software Engineer</p>
+					<p>ReactJS, Django, SQL</p>
+					<p>May - August 2018</p>
+					<p><a href="https://nextdoor.com/" target="_blank" rel="noopener noreferrer">Nextdoor</a> is a
+						social
+						media platform connecting neighbors to build stronger communities. I joined as a full stack
+						engineering intern on the Real Estate team. Over 12 weeks, I helped build and ship 3 product
+						features: <strong>Polls</strong>, <strong>Events</strong>, and <strong>Map Filters</strong>. I
+						learned to fail fast and iterate, navigate and refactor a huge codebase, write comprehensive
+						unit
+						tests, and conduct user research.</p>
+				</div>
 			</div>
-		</div>
 
-		<div class="modal" id="nextdoor-modal" role="dialog" aria-labelledby="nextdoor-modal-title" aria-modal="true"
-			aria-hidden="true">
-			<button type="button" class="modal-close" aria-label="Close Nextdoor modal">×</button>
-			<div class="modal-content">
-				<h2 id="nextdoor-modal-title">Nextdoor</h2>
-				<p>Software Engineer</p>
-				<p>ReactJS, Django, SQL</p>
-				<p>May - August 2018</p>
-				<p><a href="https://nextdoor.com/" target="_blank" rel="noopener noreferrer">Nextdoor</a> is a social
-					media platform connecting neighbors to build stronger communities. I joined as a full stack
-					engineering intern on the Real Estate team. Over 12 weeks, I helped build and ship 3 product
-					features: <strong>Polls</strong>, <strong>Events</strong>, and <strong>Map Filters</strong>. I
-					learned to fail fast and iterate, navigate and refactor a huge codebase, write comprehensive unit
-					tests, and conduct user research.</p>
+			<div class="modal" id="blend-modal" role="dialog" aria-labelledby="blend-modal-title" aria-modal="true"
+				aria-hidden="true">
+				<button type="button" class="modal-close" aria-label="Close Blend modal">×</button>
+				<div class="modal-content">
+					<h2 id="blend-modal-title">Blend</h2>
+					<p>Software Engineer</p>
+					<p>Typescript, ReactJS, PosgreSQL, MongoDB</p>
+					<p>July 2019 - December 2020</p>
+					<p><a href="https://blend.com/" target="_blank" rel="noopener noreferrer">Blend</a> is a B2B fintech
+						platform building products that streamline mortgage and other loan processes. In my 1.5 years at
+						Blend, I became an efficient and thoughtful engineer, able to take product requirements,
+						translate
+						them into a comprehensive technical spec, and finally build and ship a scalable feature in
+						collaboration with my team. I enhanced my project management skills, as well as my full stack
+						capabilities - from database management, to backend apis, UI, and data monitoring.</p>
+					<p>In more detail:</p>
+					<p><strong>Disclosures Team</strong> (Backend, ~ 1 year)</p>
+					<ul>
+						<li>Built a new service from scratch that allowed for a significant increase in volume to the
+							team's
+							solutions</li>
+						<li>Improved our internal E2E testing framework to be more robust</li>
+						<li>Designed and built multiple integrations with third parties</li>
+						<li>Facilitated integration handoffs to a new internal integrations team</li>
+					</ul>
+
+					<p><strong>Disclosures Team</strong> (Full-stack, ~ 6 months)</p>
+					<ul>
+						<li>Joined as the first engineer on the team</li>
+						<li>Built the V0 implementation of our solution from ground up</li>
+						<li>Designed, built, and shipped 3 additional features, increasing our volume from a couple to
+							hundreds of orders per month</li>
+						<li>Managed projects within the team, collaborating with product and design</li>
+						<li>Mentored a junior engineer on the team, helping them onboard (remotely) and guiding them
+							through
+							their first big project</li>
+					</ul>
+				</div>
 			</div>
-		</div>
 
-		<div class="modal" id="blend-modal" role="dialog" aria-labelledby="blend-modal-title" aria-modal="true"
-			aria-hidden="true">
-			<button type="button" class="modal-close" aria-label="Close Blend modal">×</button>
-			<div class="modal-content">
-				<h2 id="blend-modal-title">Blend</h2>
-				<p>Software Engineer</p>
-				<p>Typescript, ReactJS, PosgreSQL, MongoDB</p>
-				<p>July 2019 - December 2020</p>
-				<p><a href="https://blend.com/" target="_blank" rel="noopener noreferrer">Blend</a> is a B2B fintech
-					platform building products that streamline mortgage and other loan processes. In my 1.5 years at
-					Blend, I became an efficient and thoughtful engineer, able to take product requirements, translate
-					them into a comprehensive technical spec, and finally build and ship a scalable feature in
-					collaboration with my team. I enhanced my project management skills, as well as my full stack
-					capabilities - from database management, to backend apis, UI, and data monitoring.</p>
-				<p>In more detail:</p>
-				<p><strong>Disclosures Team</strong> (Backend, ~ 1 year)</p>
-				<ul>
-					<li>Built a new service from scratch that allowed for a significant increase in volume to the team's
-						solutions</li>
-					<li>Improved our internal E2E testing framework to be more robust</li>
-					<li>Designed and built multiple integrations with third parties</li>
-					<li>Facilitated integration handoffs to a new internal integrations team</li>
-				</ul>
-
-				<p><strong>Disclosures Team</strong> (Full-stack, ~ 6 months)</p>
-				<ul>
-					<li>Joined as the first engineer on the team</li>
-					<li>Built the V0 implementation of our solution from ground up</li>
-					<li>Designed, built, and shipped 3 additional features, increasing our volume from a couple to
-						hundreds of orders per month</li>
-					<li>Managed projects within the team, collaborating with product and design</li>
-					<li>Mentored a junior engineer on the team, helping them onboard (remotely) and guiding them through
-						their first big project</li>
-				</ul>
+			<div class="modal" id="cont-modal" role="dialog" aria-labelledby="cont-modal-title" aria-modal="true"
+				aria-hidden="true">
+				<button type="button" class="modal-close" aria-label="Close current work modal">×</button>
+				<div class="modal-content">
+					<h2 id="cont-modal-title">Current Work</h2>
+					<p>I am currently co-founder of my startup, <a href="https://helloloop.io" target="_blank"
+							rel="noopener noreferrer">Loop</a>. We are building the next generation of sales
+						productivity
+						software.</p>
+					<p>Previously, I sold my startup WizForm to Clearco. WizForm automated incorporation for small
+						businesses.</p>
+					<p>If you would like to chat, send me a <a href="mailto:katharine@wizform.com">note</a>.</p>
+				</div>
 			</div>
-		</div>
 
-		<div class="modal" id="cont-modal" role="dialog" aria-labelledby="cont-modal-title" aria-modal="true"
-			aria-hidden="true">
-			<button type="button" class="modal-close" aria-label="Close current work modal">×</button>
-			<div class="modal-content">
-				<h2 id="cont-modal-title">Current Work</h2>
-				<p>I am currently co-founder of my startup, <a href="https://helloloop.io" target="_blank"
-						rel="noopener noreferrer">Loop</a>. We are building the next generation of sales productivity
-					software.</p>
-				<p>Previously, I sold my startup WizForm to Clearco. WizForm automated incorporation for small
-					businesses.</p>
-				<p>If you would like to chat, send me a <a href="mailto:katharine@wizform.com">note</a>.</p>
-			</div>
-		</div>
 
-		<div class="modal" id="quit-modal" role="dialog" aria-labelledby="quit-modal-title" aria-modal="true"
-			aria-hidden="true">
-			<button type="button" id="quit-modal-close" aria-label="Close quit modal">×</button>
-			<div class="modal-content">
-				<h2 id="quit-modal-title">Quitting so soon?</h2>
-				<p>Drop a line <a href="https://twitter.com/katharine_jiang" target="_blank"
-						rel="noopener noreferrer">here</a>!</p>
-			</div>
-		</div>
 	</main>
 
 	<script src="./assets/scripts/script_new.js"></script>
